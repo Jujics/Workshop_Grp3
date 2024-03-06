@@ -39,16 +39,6 @@ public class PlayerController : MonoBehaviour
         else if (other.gameObject.CompareTag("froll"))
         {
             score += 100;
-
-            while (movementSpeed < 25.0f)
-            {
-                movementSpeed = Mathf.Lerp(movementSpeed, 25.0f, Time.deltaTime);
-            }
-
-            while (movementSpeed > 15.0f)
-            {
-                movementSpeed = Mathf.Lerp(movementSpeed, 15.0f, Time.deltaTime);
-            }   
         }
 
     }
