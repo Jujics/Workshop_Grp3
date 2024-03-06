@@ -4,6 +4,7 @@ public class PlayerController : MonoBehaviour
 {
     public float movementSpeed = 5.0f;
     public float jumpForce = 10.0f;
+    public int score = 100000;
 
     private Rigidbody rb;
     private bool isGrounded;
@@ -27,6 +28,7 @@ public class PlayerController : MonoBehaviour
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
+        Debug.Log(score);
     }
 
     private void OnDrawGizmos()
