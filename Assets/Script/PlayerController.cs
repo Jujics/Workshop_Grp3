@@ -113,6 +113,16 @@ public class PlayerController : MonoBehaviour
         {
             winui.SetActive(true);
         }
+        else if (other.gameObject.CompareTag("smscoreobj"))
+        {
+            score += 20;
+            other.gameObject.SetActive(false);
+        }
+        else if (other.gameObject.CompareTag("bgscoreobj"))
+        {
+            score += 100;
+            other.gameObject.SetActive(false);
+        }
 
     }
 
