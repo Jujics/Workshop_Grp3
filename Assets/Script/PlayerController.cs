@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float movementSpeed = 5.0f;
+    public float movementSpeed = 15.0f;
     public float jumpForce = 10.0f;
     public int score = 100000;
-    public float frollbo = 15.0f;
+    public float frollbo = 25.0f;
 
     private Rigidbody rb;
     private bool isGrounded;
@@ -36,11 +36,21 @@ public class PlayerController : MonoBehaviour
         {
             score -= 100;
         }
-        else if(other.gameObject.CompareTag("froll"))
+        else if (other.gameObject.CompareTag("froll"))
         {
             score += 100;
-            rb.AddForce(Vector3.forward * frollbo, ForceMode.Impulse);
+
+            while (movementSpeed < 25.0f)
+            {
+                movementSpeed = Mathf.Lerp(movementSpeed, 25.0f, Time.deltaTime);
+            }
+
+            while (movementSpeed > 15.0f)
+            {
+                movementSpeed = Mathf.Lerp(movementSpeed, 15.0f, Time.deltaTime);
+            }   
         }
+
     }
 
     private void OnDrawGizmos()
