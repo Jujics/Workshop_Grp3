@@ -78,10 +78,19 @@ public class PlayerController : MonoBehaviour
         isGrounded = Physics.Raycast(transform.position, Vector3.down, 0.1f);
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
+        Debug.Log("horisontal " + horizontalInput + " vertical " + verticalInput);
+        if (horizontalInput > 0.30f)
+        {
+            horizontalInput = 0.30f;
+        }
+        else if (horizontalInput < -0.30f)
+        {
+            horizontalInput = 0.30f;
+        }
+        Debug.Log("horisontal " + horizontalInput + " vertical " + verticalInput);
         verticalInput = Mathf.Max(0.0f, verticalInput);
         Vector3 moveDirection = new Vector3(horizontalInput, 0.0f, verticalInput);
-        rb.velocity = new Vector3(moveDirection.x * movementSpeed, rb.velocity.y, moveDirection.z * movementSpeed);
-        Debug.Log(score);   
+        rb.velocity = new Vector3(moveDirection.x * movementSpeed, rb.velocity.y, moveDirection.z * movementSpeed);   
     }
     void OnTriggerEnter(Collider other)
     {
