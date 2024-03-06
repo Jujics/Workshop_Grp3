@@ -2006,7 +2006,7 @@ GameObject:
   - component: {fileID: 2021790304}
   m_Layer: 0
   m_Name: bgscoreobject
-  m_TagString: smscoreobj
+  m_TagString: bgscoreobj
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
