@@ -5,6 +5,7 @@ public class PlayerController : MonoBehaviour
     public float movementSpeed = 5.0f;
     public float jumpForce = 10.0f;
     public int score = 100000;
+    public float frollbo = 15.0f;
 
     private Rigidbody rb;
     private bool isGrounded;
@@ -24,11 +25,22 @@ public class PlayerController : MonoBehaviour
         Vector3 moveDirection = new Vector3(horizontalInput, 0.0f, verticalInput);
         rb.velocity = new Vector3(moveDirection.x * movementSpeed, rb.velocity.y , moveDirection.z * movementSpeed);;
 
-        if (isGrounded && Input.GetButtonDown("Jump"))
-        {
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-        }
+        
         Debug.Log(score);
+
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("dmgin"))
+        {
+            score -= 100;
+        }
+        else if(other.gameObject.CompareTag("froll"))
+        {
+            score += 100;
+            rb.AddForce(Vector3.forward * frollbo, ForceMode.Impulse);
+        }
     }
 
     private void OnDrawGizmos()
