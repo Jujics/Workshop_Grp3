@@ -6,6 +6,7 @@ TagManager:
   tags:
   - dmgin
   - froll
+  - winwall
   layers:
   - Default
   - TransparentFX
