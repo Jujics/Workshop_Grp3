@@ -1084,14 +1084,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 15
   jumpForce: 10
-  score: 100000
+  score: 200
   frollbo: 25
   n: 0
   isboosingout: 0
   isslowingout: 0
   isboosingin: 0
   vcam: {fileID: 1025255611}
-  uielem: {fileID: 1811904146}
+  winui: {fileID: 1811904146}
+  loseui: {fileID: 1160977184}
 --- !u!135 &1625530631
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1807,7 +1808,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "vs avez gagn\xE9 g\xE9g\xE9"
+  m_text: 'vs avez perdu snif
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
