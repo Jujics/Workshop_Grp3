@@ -114,6 +114,13 @@ public class PlayerController : MonoBehaviour
                 verticalInput = 1.0f;
             }
         }
+        if (verticalInput < 0.1f)
+        {
+            float interpolationFactor = 3.0f;
+            verticalInput = 1.0f;
+            movementSpeed = Mathf.Lerp(movementSpeed, 0f, interpolationFactor * Time.deltaTime);
+        }
+        
 
         // Afficher les informations de débogage
         Debug.Log("horizontale " + horizontalInput + " verticale " + verticalInput);
