@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public float jumpForce = 10.0f;         // Force de saut du joueur
     public int score = 100000;              // Score du joueur
     public float frollbo = 25.0f;           // Bonus de vitesse du joueur
+    public double elec = 0;                    // Jauge d'electricitée
     public int n = 0;                       // Variable de comptage
     public bool isboosingout;               // Indique si le joueur accélère
     public bool isslowingout;               // Indique si le joueur ralentit
@@ -22,6 +23,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        movementSpeed = 0f;
         // Initialisation du composant Rigidbody au démarrage
         rb = GetComponent<Rigidbody>();
     }
@@ -145,7 +147,19 @@ public class PlayerController : MonoBehaviour
         Vector3 moveDirection = new Vector3(horizontalInput, 0.0f, verticalInput);
 
         // Appliquer la vélocité pour déplacer le joueur
+        elecmanager();
         rb.velocity = new Vector3(moveDirection.x * movementSpeed, rb.velocity.y, moveDirection.z * movementSpeed);
+    }
+
+    public void elecmanager()
+    {
+        if (Input.GetAxis("BoostBtn") > 0 && elec > 0)
+        {
+            Debug.Log(elec);
+            float interpolationFactor = 10.0f;
+            movementSpeed = Mathf.Lerp(movementSpeed, 120f, interpolationFactor * Time.deltaTime);
+            elec -= 0.02;
+        }
     }
 
     // Méthode vérifiant si le clavier est utilisé
@@ -186,6 +200,17 @@ public class PlayerController : MonoBehaviour
         {
             score += 100;
             other.gameObject.SetActive(false);
+        }
+        else if (other.gameObject.CompareTag("elecgiv"))
+        {
+            if (elec + 10 < 100)
+            {
+                elec += 10;
+            }
+            else if (elec + 10 > 100)
+            {
+                elec = 100;
+            }
         }
     }
 
