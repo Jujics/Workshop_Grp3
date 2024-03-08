@@ -7,12 +7,12 @@ public class walladv : MonoBehaviour
     public int wallsp;
     public GameObject player; 
     private Rigidbody rb;
-    private PlayerController vari;
+    private Scoremanager vari;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        vari = player.GetComponent<PlayerController>();
+        vari = player.GetComponent<Scoremanager>();
     }
 
     void Update()

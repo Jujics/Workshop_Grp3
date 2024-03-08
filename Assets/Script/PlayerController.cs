@@ -6,7 +6,6 @@ public class PlayerController : MonoBehaviour
     // Variables publiques pour ajuster le comportement du joueur
     public float movementSpeed = 15.0f;    // Vitesse de déplacement du joueur
     public float jumpForce = 10.0f;         // Force de saut du joueur
-    public int score = 100000;              // Score du joueur
     public float frollbo = 25.0f;           // Bonus de vitesse du joueur
     public double elec = 0;                    // Jauge d'electricitée
     public int n = 0;                       // Variable de comptage
@@ -63,12 +62,6 @@ public class PlayerController : MonoBehaviour
 
         // Vérifier si le joueur est au sol
         isGrounded = Physics.Raycast(transform.position, Vector3.down, 0.1f);
-
-        // Gestion de la défaite si le score est inférieur à -1
-        if (score <= -1)
-        {
-            loseui.SetActive(true);
-        }
 
         // Gestion du ralentissement du joueur
         if (isslowingout == true)
@@ -171,35 +164,9 @@ public class PlayerController : MonoBehaviour
     // Méthode appelée lorsqu'un objet entre en collision avec le joueur
     void OnTriggerEnter(Collider other)
     {
-        // Gérer les collisions avec différents types d'objets
-        if (other.gameObject.CompareTag("dmgin"))
-        {
-            score -= 100;
-            isslowingout = true;
-        }
-        else if (other.gameObject.CompareTag("froll"))
-        {
-            score += 100;
-            isboosingout = true;
-        }
-        else if (other.gameObject.CompareTag("froll") && other.gameObject.CompareTag("dmgin"))
-        {
-            score -= 100;
-            isslowingout = true;
-        }
-        else if (other.gameObject.CompareTag("winwall"))
+        if (other.gameObject.CompareTag("winwall"))
         {
             winui.SetActive(true);
-        }
-        else if (other.gameObject.CompareTag("smscoreobj"))
-        {
-            score += 20;
-            other.gameObject.SetActive(false);
-        }
-        else if (other.gameObject.CompareTag("bgscoreobj"))
-        {
-            score += 100;
-            other.gameObject.SetActive(false);
         }
         else if (other.gameObject.CompareTag("elecgiv"))
         {
