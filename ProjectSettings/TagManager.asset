@@ -9,6 +9,8 @@ TagManager:
   - winwall
   - smscoreobj
   - bgscoreobj
+  - vpn
+  - elecgiv
   layers:
   - Default
   - TransparentFX
