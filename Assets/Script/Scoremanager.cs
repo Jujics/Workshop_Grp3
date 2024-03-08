@@ -5,37 +5,37 @@ using UnityEngine;
 public class Scoremanager : MonoBehaviour
 {
     public int score = 100000;
-
-    
-    void Start()
+    public GameObject loseui;
+    private PlayerController PL;
+    private void Start()
     {
-        
+        PL = GetComponent<PlayerController>();
     }
 
-    void Update()
+    private void Update()
     {
         if (score <= -1)
         {
             loseui.SetActive(true);
         }   
     }
-    void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         // Gérer les collisions avec différents types d'objets
         if (other.gameObject.CompareTag("dmgin"))
         {
             score -= 100;
-            isslowingout = true;
+            PL.isslowingout = true;
         }
         else if (other.gameObject.CompareTag("froll"))
         {
             score += 100;
-            isboosingout = true;
+            PL.isboosingout = true;
         }
         else if (other.gameObject.CompareTag("froll") && other.gameObject.CompareTag("dmgin"))
         {
             score -= 100;
-            isslowingout = true;
+            PL.isslowingout = true;
         }
         else if (other.gameObject.CompareTag("smscoreobj"))
         {
