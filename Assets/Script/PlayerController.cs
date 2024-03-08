@@ -6,21 +6,20 @@ public class PlayerController : MonoBehaviour
     // Variables publiques pour ajuster le comportement du joueur
     public float movementSpeed = 15.0f;    // Vitesse de déplacement du joueur
     public float jumpForce = 10.0f;         // Force de saut du joueur
-    public float boostBonus = 25.0f;        // Bonus de vitesse du joueur lors du boost
-    public double electricity = 0;          // Jauge d'électricité
-    public int boostCounter = 0;            // Variable de comptage pour le boost
-    public bool isBoosting;                 // Indique si le joueur est en train d'accélérer
-    public bool isSlowing;                  // Indique si le joueur est en train de ralentir
-    public bool isBoostingIn;               // Placeholder, non utilisé dans ce script
+    public float frollbo = 25.0f;           // Bonus de vitesse du joueur
+    public double elec = 0;                    // Jauge d'electricitée
+    public int n = 0;                       // Variable de comptage
+    public bool isboosingout;               // Indique si le joueur accélère
+    public bool isslowingout;               // Indique si le joueur ralentit
+    public bool isboosingin;                // Placeholder, non utilisé dans ce script
     public CinemachineVirtualCamera vcam;   // Caméra virtuelle utilisée pour ajuster la vue
-    public GameObject winUI;                // Interface utilisateur de victoire
+    public GameObject winui;                // Interface utilisateur de victoire
     private Rigidbody rb;                   // Composant Rigidbody du joueur
     private bool isGrounded;                // Indique si le joueur est au sol
-    private const float RayLengthMultiplier = 4f;  // Facteur multiplicateur pour la longueur du rayon de débogage
+    private const float LengthMultiplier = 4f;  // Facteur multiplicateur pour la longueur du rayon de débogage
 
     private void Start()
     {
-        // Initialisation de la vitesse de déplacement au démarrage
         movementSpeed = 0f;
         // Initialisation du composant Rigidbody au démarrage
         rb = GetComponent<Rigidbody>();
@@ -29,30 +28,30 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         // Gestion de l'accélération du joueur
-        if (isBoosting)
+        if (isboosingout == true)
         {
-            // Si le compteur de boost est inférieur à 100, augmenter la vitesse
-            if (boostCounter <= 100)
+            // Si la variable de comptage est inférieure à 100, augmenter la vitesse
+            if (n <= 100)
             {
                 movementSpeed += 0.5f;
-                boostCounter += 1;
+                n += 1;
             }
-            // Si le compteur de boost est entre 100 et 200, augmenter la vitesse plus lentement
-            else if (boostCounter > 100 && boostCounter < 200)
+            // Si la variable de comptage est entre 100 et 200, augmenter la vitesse plus lentement
+            else if (n > 100 && n < 200)
             {
                 movementSpeed += 0.2f;
-                boostCounter += 1;
+                n += 1;
             }
-            // Sinon, réinitialiser le compteur de boost et arrêter l'accélération
+            // Sinon, réinitialiser la variable de comptage et arrêter l'accélération
             else
             {
-                boostCounter = 0;
-                isBoosting = false;
+                n = 0;
+                isboosingout = false;
             }
         }
 
         // Gestion de la décélération du joueur
-        if (!isBoosting && movementSpeed != 15.0f)
+        if (isboosingout == false && movementSpeed != 15.0f)
         {
             float interpolationFactor = 1.5f;
             // Appliquer une interpolation linéaire pour décélérer en douceur
@@ -63,31 +62,31 @@ public class PlayerController : MonoBehaviour
         isGrounded = Physics.Raycast(transform.position, Vector3.down, 0.1f);
 
         // Gestion du ralentissement du joueur
-        if (isSlowing)
+        if (isslowingout == true)
         {
-            // Si le compteur de ralentissement est inférieur à 100, ralentir la vitesse
-            if (boostCounter <= 100)
+            // Si la variable de comptage est inférieure à 100, ralentir la vitesse
+            if (n <= 100)
             {
                 movementSpeed += -0.01f;
-                boostCounter += 1;
+                n += 1;
                 vcam.m_Lens.FieldOfView -= 0.25f;
             }
-            // Si le compteur de ralentissement est entre 100 et 200, ralentir la vitesse plus lentement
-            else if (boostCounter > 100 && boostCounter < 200)
+            // Si la variable de comptage est entre 100 et 200, ralentir la vitesse plus lentement
+            else if (n > 100 && n < 200)
             {
                 movementSpeed += -0.005f;
-                boostCounter += 1;
+                n += 1;
             }
-            // Sinon, réinitialiser le compteur de ralentissement et arrêter le ralentissement
+            // Sinon, réinitialiser la variable de comptage et arrêter le ralentissement
             else
             {
-                boostCounter = 0;
-                isSlowing = false;
+                n = 0;
+                isslowingout = false;
             }
         }
 
         // Gestion du retour à la vitesse normale après le ralentissement
-        if (!isSlowing && movementSpeed != 15.0f)
+        if (isslowingout == false && movementSpeed != 15.0f)
         {
             float interpolationFactor = 0.8f;
             // Appliquer une interpolation linéaire pour revenir à la vitesse normale en douceur
@@ -108,16 +107,16 @@ public class PlayerController : MonoBehaviour
                 verticalInput = 1.0f;
             }
         }
-
         if (verticalInput < 0.1f)
         {
             float interpolationFactor = 3.0f;
             verticalInput = 1.0f;
             movementSpeed = Mathf.Lerp(movementSpeed, 0f, interpolationFactor * Time.deltaTime);
         }
+        
 
         // Afficher les informations de débogage
-        Debug.Log("Horizontal: " + horizontalInput + " Vertical: " + verticalInput);
+        Debug.Log("horizontale " + horizontalInput + " verticale " + verticalInput);
 
         // Limiter l'entrée horizontale pour éviter des valeurs extrêmes
         if (horizontalInput > 0.70f)
@@ -130,7 +129,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // Afficher à nouveau les informations de débogage
-        Debug.Log("Horizontal: " + horizontalInput + " Vertical: " + verticalInput);
+        Debug.Log("horizontale " + horizontalInput + " verticale " + verticalInput);
 
         // Limiter l'entrée verticale à une valeur minimale de 0
         verticalInput = Mathf.Max(0.0f, verticalInput);
@@ -139,18 +138,18 @@ public class PlayerController : MonoBehaviour
         Vector3 moveDirection = new Vector3(horizontalInput, 0.0f, verticalInput);
 
         // Appliquer la vélocité pour déplacer le joueur
-        ElectricityManager();
+        elecmanager();
         rb.velocity = new Vector3(moveDirection.x * movementSpeed, rb.velocity.y, moveDirection.z * movementSpeed);
     }
 
-    public void ElectricityManager()
+    public void elecmanager()
     {
-        if (Input.GetAxis("BoostBtn") > 0 && electricity > 0)
+        if (Input.GetAxis("BoostBtn") > 0 && elec > 0)
         {
-            Debug.Log(electricity);
+            Debug.Log(elec);
             float interpolationFactor = 10.0f;
             movementSpeed = Mathf.Lerp(movementSpeed, 120f, interpolationFactor * Time.deltaTime);
-            electricity -= 0.02;
+            elec -= 0.02;
         }
     }
 
@@ -165,18 +164,18 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("winwall"))
         {
-            winUI.SetActive(true);
+            winui.SetActive(true);
         }
-        else if (other.gameObject.CompareTag("electricitygiver"))
+        else if (other.gameObject.CompareTag("elecgiv"))
         {
-            if (electricity + 10 < 100)
+            if (elec + 10 < 100)
             {
-                electricity += 10;
+                elec += 10;
                 other.gameObject.SetActive(false);
             }
-            else if (electricity + 10 > 100)
+            else if (elec + 10 > 100)
             {
-                electricity = 100;
+                elec = 100;
                 other.gameObject.SetActive(false);
             }
         }
@@ -193,6 +192,6 @@ public class PlayerController : MonoBehaviour
 
         // Dessiner un rayon de débogage
         Gizmos.color = Color.red;
-        Gizmos.DrawRay(playerpos, moveDirection * RayLengthMultiplier);
+        Gizmos.DrawRay(playerpos, moveDirection * LengthMultiplier);
     }
 }
