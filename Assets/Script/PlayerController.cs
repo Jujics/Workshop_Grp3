@@ -171,10 +171,12 @@ public class PlayerController : MonoBehaviour
             if (elec + 10 < 100)
             {
                 elec += 10;
+                other.gameObject.SetActive(false);
             }
             else if (elec + 10 > 100)
             {
                 elec = 100;
+                other.gameObject.SetActive(false);
             }
         }
     }

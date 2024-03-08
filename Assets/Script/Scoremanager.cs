@@ -7,9 +7,11 @@ public class Scoremanager : MonoBehaviour
     public int score = 100000;
     public GameObject loseui;
     private PlayerController PL;
+    private Powerupmanager PW;
     private void Start()
     {
         PL = GetComponent<PlayerController>();
+        PW = GetComponent<Powerupmanager>();
     }
 
     private void Update()
@@ -24,8 +26,16 @@ public class Scoremanager : MonoBehaviour
         // Gérer les collisions avec différents types d'objets
         if (other.gameObject.CompareTag("dmgin"))
         {
-            score -= 100;
-            PL.isslowingout = true;
+            if(PW.isvpn == true)
+            {
+                PW.isvpn = false;
+            }
+            else
+            {
+                score -= 100;
+                PL.isslowingout = true;
+            }
+            
         }
         else if (other.gameObject.CompareTag("froll"))
         {
