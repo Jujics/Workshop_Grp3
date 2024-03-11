@@ -13,44 +13,45 @@ public class MenuManager : MonoBehaviour
     int ih = 0;
 
     private bool isonmain;
+
     void Start()
     {
-        
+        // Initialization if needed
     }
-
 
     void Update()
     {
-        if (Input.GetKey("Lngame") == 1.0f)
+        // Check if the key "Lngame" is pressed
+        if (Input.GetKey("Lngame"))
         {
             hasclic = true;
         }
-        if (hasclic == true && lenclig == 600)
+
+        // Check conditions and modify lenclig if needed
+        if (hasclic && lenclig == 600)
         {
             lenclig /= 3;
         }
+
         i += 1;
-        if (hasclic == true)
+
+        // Check if hasclic is true
+        if (hasclic)
         {
             ih += 1;
-            if(ih == 600)
+            if (ih == 600)
             {
                 Mainmn.SetActive(true);
                 Startmn.SetActive(false);
             }
         }
-        if(i == lenclig)
+
+        // Check if i equals lenclig
+        if (i == lenclig)
         {
-            if (txtclig.activeSelf)
-            {
-                txtclig.SetActive(false);
-                i = 0;
-            }
-            else
-            {
-                txtclig.SetActive(true);
-                i = 0;
-            }
+            // Toggle the visibility of txtclig
+            txtclig.SetActive(!txtclig.activeSelf);
+            i = 0;
         }
     }
 }
