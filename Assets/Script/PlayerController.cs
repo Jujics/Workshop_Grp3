@@ -5,6 +5,8 @@ public class PlayerController : MonoBehaviour
 {
     // Variables publiques pour ajuster le comportement du joueur
     public float movementSpeed = 15.0f;    // Vitesse de déplacement du joueur
+    public float boostSp = 120.0f;         // Vitesse max de boost 
+    public float basicSp = 15.0f;          // Vitesse du joueur
     public float jumpForce = 10.0f;         // Force de saut du joueur
     public float frollbo = 25.0f;           // Bonus de vitesse du joueur
     public double elec = 0;                    // Jauge d'electricitée
@@ -51,11 +53,11 @@ public class PlayerController : MonoBehaviour
         }
 
         // Gestion de la décélération du joueur
-        if (isboosingout == false && movementSpeed != 15.0f)
+        if (isboosingout == false && movementSpeed != basicSp)
         {
             float interpolationFactor = 1.5f;
             // Appliquer une interpolation linéaire pour décélérer en douceur
-            movementSpeed = Mathf.Lerp(movementSpeed, 15.0f, interpolationFactor * Time.deltaTime);
+            movementSpeed = Mathf.Lerp(movementSpeed, basicSp, interpolationFactor * Time.deltaTime);
         }
 
         // Vérifier si le joueur est au sol
@@ -86,12 +88,12 @@ public class PlayerController : MonoBehaviour
         }
 
         // Gestion du retour à la vitesse normale après le ralentissement
-        if (isslowingout == false && movementSpeed != 15.0f)
+        if (isslowingout == false && movementSpeed != basicSp)
         {
             float interpolationFactor = 0.8f;
             // Appliquer une interpolation linéaire pour revenir à la vitesse normale en douceur
             vcam.m_Lens.FieldOfView = Mathf.Lerp(vcam.m_Lens.FieldOfView, 60f, interpolationFactor * Time.deltaTime);
-            movementSpeed = Mathf.Lerp(movementSpeed, 15.0f, interpolationFactor * Time.deltaTime);
+            movementSpeed = Mathf.Lerp(movementSpeed, basicSp, interpolationFactor * Time.deltaTime);
         }
 
         // Gérer les entrées du joueur
@@ -148,7 +150,7 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log(elec);
             float interpolationFactor = 10.0f;
-            movementSpeed = Mathf.Lerp(movementSpeed, 120f, interpolationFactor * Time.deltaTime);
+            movementSpeed = Mathf.Lerp(movementSpeed, boostSp, interpolationFactor * Time.deltaTime);
             elec -= 0.02;
         }
     }
