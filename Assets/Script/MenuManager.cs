@@ -9,6 +9,8 @@ public class MenuManager : MonoBehaviour
     public GameObject txtclig;
     public GameObject Mainmn;
     public GameObject Startmn;
+    public GameObject Options;
+    public GameObject Credits;
     public GameObject Button;
     public bool hasclic;
     public int i = 0;
@@ -37,7 +39,7 @@ public class MenuManager : MonoBehaviour
         i += 1;
 
         
-        if (hasclic)
+        if (hasclic && !onmenu)
         {
             ih += 1;
             if (ih == 1300)
@@ -56,4 +58,29 @@ public class MenuManager : MonoBehaviour
             i = 0;
         }
     }
+    public void OnQuit()
+    {
+        Application.Quit();
+    }
+    public void OnClicOptions()
+    {
+        Options.SetActive(true);
+        Mainmn.SetActive(false);
+    }
+    public void OnClicCredits()
+    {
+        Credits.SetActive(true);
+        Mainmn.SetActive(false);
+    }
+    public void OnClicBackCre()
+    {
+        Credits.SetActive(false);
+        Mainmn.SetActive(true);
+    }
+    public void OnClicBackOpt()
+    {
+        Options.SetActive(false);
+        Mainmn.SetActive(true);
+    }
+
 }
