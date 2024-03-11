@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class MenuManager : MonoBehaviour
 {
@@ -8,26 +9,26 @@ public class MenuManager : MonoBehaviour
     public GameObject txtclig;
     public GameObject Mainmn;
     public GameObject Startmn;
+    public GameObject Button;
     public bool hasclic;
-    int i = 0;
-    int ih = 0;
+    public int i = 0;
+    public int ih = 0;
+    public bool onmenu;
 
     private bool isonmain;
 
     void Start()
     {
-        // Initialization if needed
+        
     }
 
     void Update()
     {
-        // Check if the key "Lngame" is pressed
-        if (Input.GetKey("Lngame"))
+        if (Input.GetAxis("Lngame") != 0.0f)
         {
             hasclic = true;
         }
 
-        // Check conditions and modify lenclig if needed
         if (hasclic && lenclig == 600)
         {
             lenclig /= 3;
@@ -35,21 +36,22 @@ public class MenuManager : MonoBehaviour
 
         i += 1;
 
-        // Check if hasclic is true
+        
         if (hasclic)
         {
             ih += 1;
-            if (ih == 600)
+            if (ih == 1300)
             {
                 Mainmn.SetActive(true);
                 Startmn.SetActive(false);
+                onmenu = true;
+                EventSystem.current.SetSelectedGameObject(Button);
             }
         }
 
-        // Check if i equals lenclig
-        if (i == lenclig)
+        
+        if (i >= lenclig)
         {
-            // Toggle the visibility of txtclig
             txtclig.SetActive(!txtclig.activeSelf);
             i = 0;
         }
