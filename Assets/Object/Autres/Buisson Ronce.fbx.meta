@@ -1,34 +1,9 @@
 fileFormatVersion: 2
-guid: 299149dcfecf80340a9266b293c99e5c
+guid: f046fac49e138a54eaa8fa3378925c81
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Material_vaisseau_Alpha
-    second: {fileID: 2800000, guid: edc86de5faf8a8d4ba02a8f4880b0f2a, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Material_vaisseau_Emission
-    second: {fileID: 2800000, guid: 2cfb7f061564acb4fb5a89a6d4059177, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Material_vaisseau_Metallic
-    second: {fileID: 2800000, guid: 4b8869dc7f1986148bdd632ce15efcc8, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Material_vaisseau_Normal
-    second: {fileID: 2800000, guid: 26338017d65750c4bb38717deb48cc39, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Material_vaisseau_Roughness
-    second: {fileID: 2800000, guid: 1a87795d8e53ecd4891bb6a397fb7440, type: 3}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0

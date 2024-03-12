@@ -11,6 +11,7 @@ TagManager:
   - bgscoreobj
   - vpn
   - elecgiv
+  - firewall
   layers:
   - Default
   - TransparentFX
