@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
@@ -30,7 +31,11 @@ public class MenuManager : MonoBehaviour
 
     void Update()
     {
-        hasclic = Input.GetAxis("Lngame") != 0.0f;
+        if (hasclic == false)
+        {
+            hasclic = Input.GetAxis("Lngame") != 0.0f;
+        }
+            
 
         if (hasclic && lenclig == 600)
         {
@@ -125,6 +130,12 @@ public class MenuManager : MonoBehaviour
         {
             p = 1;
         }
+    }
+
+    public void Onclicchoose()
+    {
+        PlayerPrefs.SetInt("CarSelection", p);
+        SceneManager.LoadScene("SampleScene");
     }
 
     public void OnClicChoixvoiture()

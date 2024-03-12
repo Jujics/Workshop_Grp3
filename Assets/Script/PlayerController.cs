@@ -16,12 +16,25 @@ public class PlayerController : MonoBehaviour
     public bool isboosingin;                // Placeholder, non utilisé dans ce script
     public CinemachineVirtualCamera vcam;   // Caméra virtuelle utilisée pour ajuster la vue
     public GameObject winui;                // Interface utilisateur de victoire
+    public Mesh newMesh1;
+    public Mesh newMesh2;
     private Rigidbody rb;                   // Composant Rigidbody du joueur
     private bool isGrounded;                // Indique si le joueur est au sol
     private const float LengthMultiplier = 4f;  // Facteur multiplicateur pour la longueur du rayon de débogage
 
     private void Start()
     {
+        MeshFilter meshFilter = GetComponent<MeshFilter>();
+        int agrs = PlayerPrefs.GetInt("CarSelection");
+        Debug.Log("test" + agrs);
+        if (agrs == 1)
+        {
+            meshFilter.mesh = newMesh1;
+        }
+        else if (agrs == 0)
+        {
+            meshFilter.mesh = newMesh2;
+        }
         movementSpeed = 0f;
         // Initialisation du composant Rigidbody au démarrage
         rb = GetComponent<Rigidbody>();
