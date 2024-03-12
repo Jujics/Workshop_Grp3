@@ -6,6 +6,8 @@ public class walladv : MonoBehaviour
 {
     public int wallsp;
     public GameObject player; 
+    public bool Critwall;
+    public bool Nearwall;
     private Rigidbody rb;
     private Scoremanager vari;
 
@@ -24,7 +26,20 @@ public class walladv : MonoBehaviour
         if (player.transform.position.z >= transform.position.z + 20) 
         {
             wallsp = 10;
+            Nearwall = false;
+            Critwall = false;
         }
+        else if (player.transform.position.z <= transform.position.z + 20 && player.transform.position.z >= transform.position.z + 5)
+        {
+            Nearwall = true;
+            Critwall = false;
+        }
+        else if (player.transform.position.z <= transform.position.z + 5)
+        {
+            Critwall = true;
+            Nearwall = false;
+        }
+
         else if(player.transform.position.z < transform.position.z)
         {
             vari.score -= 1;
@@ -33,6 +48,7 @@ public class walladv : MonoBehaviour
         {
             wallsp = 2;
         }
+        
 
     }
 }
