@@ -6074,8 +6074,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 15
-  boostSp: 120
-  basicSp: 30
+  boostSp: 60
+  basicSp: 40
   jumpForce: 10
   frollbo: 25
   elec: 100
