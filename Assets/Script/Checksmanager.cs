@@ -4,7 +4,16 @@ using UnityEngine;
 
 public class Checksmanager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public int index;
+    public string str;
+    public bool IsDisplayTextIn;
+    public bool IsDisplayTextOut;
+    public bool IsSpore;
+    public bool InAdslIn;
+    public bool InAdslOut;
+    public bool InFibreIn;
+    public bool InFibreOut;
+
     void Start()
     {
         Application.targetFrameRate = 60;
