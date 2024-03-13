@@ -22,6 +22,19 @@ public class Checksmanager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (IsDisplayTextIn)
+        {
+            //set.active(text)
+            //text.settext
+        }
+        else if (IsDisplayTextOut)
+        {
+            //set.active(text)false
+            //text.settext
+        }
+        else if (IsSpore)
+        {
+            //
+        }
     }
 }
