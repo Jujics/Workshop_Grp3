@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        Application.targetFrameRate = 60;
         MeshFilter meshFilter = GetComponent<MeshFilter>();
         int agrs = PlayerPrefs.GetInt("CarSelection");
         Debug.Log("test" + agrs);

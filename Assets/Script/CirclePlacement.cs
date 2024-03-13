@@ -8,8 +8,7 @@ public class CirclePlacement : MonoBehaviour
 
     void Start()
     {
-        
-
+        Application.targetFrameRate = 60;
         PlaceObjectsOnCircle();
     }
 

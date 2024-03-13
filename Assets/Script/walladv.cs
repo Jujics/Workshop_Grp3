@@ -15,6 +15,7 @@ public class walladv : MonoBehaviour
 
     void Start()
     {
+        Application.targetFrameRate = 60;
         rb = GetComponent<Rigidbody>();
         vari = player.GetComponent<Scoremanager>();
     }

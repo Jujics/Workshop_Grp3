@@ -10,6 +10,7 @@ public class Scoremanager : MonoBehaviour
     private Powerupmanager PW;
     private void Start()
     {
+        Application.targetFrameRate = 60;
         PL = GetComponent<PlayerController>();
         PW = GetComponent<Powerupmanager>();
     }

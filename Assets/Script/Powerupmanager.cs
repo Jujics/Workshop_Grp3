@@ -7,6 +7,7 @@ public class Powerupmanager : MonoBehaviour
     public bool isvpn;  
     void Start()
     {
+        Application.targetFrameRate = 60;
         
     }
 
