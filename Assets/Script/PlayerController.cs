@@ -136,20 +136,42 @@ public class PlayerController : MonoBehaviour
         
 
         // Afficher les informations de débogage
-        Debug.Log("horizontale " + horizontalInput + " verticale " + verticalInput);
-
+        float rotationStep = 10.0f * Time.deltaTime;
         // Limiter l'entrée horizontale pour éviter des valeurs extrêmes
-        if (horizontalInput > 0.70f)
+        Debug.Log("aaa"+transform.rotation.eulerAngles.x);
+        if (horizontalInput > 0.70f || IsOnTurnLeft)
         {
-            horizontalInput = 0.70f;
+            if (IsOnTurnLeft)
+            {                
+                horizontalInput = 0.70f;
+                transform.Rotate(Vector3.up, rotationStep);
+            }
+            else 
+            {
+                horizontalInput = 0.70f;
+            }
         }
-        else if (horizontalInput < -0.70f)
+        else if (horizontalInput < -0.70f || IsOnTurnRight)
         {
-            horizontalInput = -0.70f;
+            if (IsOnTurnRight)
+            {                
+                horizontalInput = -0.70f;
+                transform.Rotate(Vector3.up, -rotationStep);
+            }
+            else
+            {
+                horizontalInput = -0.70f;
+            }
         }
+        if (Mathf.Abs(transform.rotation.eulerAngles.x - 270f) > 1f && !IsOnTurnLeft && !IsOnTurnRight)
+        {
+            float targetAngle = 270f;
+            float currentAngle = transform.rotation.eulerAngles.x;
+            float newAngle = Mathf.Lerp(currentAngle, targetAngle, Time.deltaTime);
+            transform.rotation = Quaternion.Euler(newAngle, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z);
+        }
+        Debug.Log("bbb"+transform.rotation.eulerAngles.x);
 
-        // Afficher à nouveau les informations de débogage
-        Debug.Log("horizontale " + horizontalInput + " verticale " + verticalInput);
 
         // Limiter l'entrée verticale à une valeur minimale de 0
         verticalInput = Mathf.Max(0.0f, verticalInput);
@@ -206,6 +228,17 @@ public class PlayerController : MonoBehaviour
         else if (other.gameObject.CompareTag("GoRight"))
         {
             IsOnTurnRight = true;
+        }
+    }
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("GoLeft"))
+        {
+            IsOnTurnLeft = false;
+        }
+        else if (other.gameObject.CompareTag("GoRight"))
+        {
+            IsOnTurnRight = false;  
         }
     }
 
