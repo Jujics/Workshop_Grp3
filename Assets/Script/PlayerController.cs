@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
     public Mesh newMesh2;                   //mesh voiture 2
     public bool IsOnTurnLeft;               // Indique si le joueur est dans un virage vers la gauche
     public bool IsOnTurnRight;              // Indique si le joueur est dans un virage vers la droite
+    public bool IsInFog;
+    public int FogCount = 0;
     private Rigidbody rb;                   // Composant Rigidbody du joueur
     private bool isGrounded;                // Indique si le joueur est au sol
     private float horizontalInput;  
@@ -47,6 +49,16 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if(IsInFog)
+        {
+            RenderSettings.fogDensity = 0.1f;
+            FogCount += 1;
+            if (FogCount == 200)
+            {
+                RenderSettings.fogDensity = 0.001f;
+                IsInFog = false;
+            }
+        }
         // Gestion de l'accélération du joueur
         if (isboosingout == true)
         {
@@ -228,6 +240,10 @@ public class PlayerController : MonoBehaviour
         else if (other.gameObject.CompareTag("GoRight"))
         {
             IsOnTurnRight = true;
+        }
+        else if (other.gameObject.CompareTag("Schroom"))
+        {
+            IsInFog = true;
         }
     }
     void OnTriggerExit(Collider other)
