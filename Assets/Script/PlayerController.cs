@@ -195,6 +195,14 @@ public class PlayerController : MonoBehaviour
                 other.gameObject.SetActive(false);
             }
         }
+        else if (other.gameObject.CompareTag("GoLeft"))
+        {
+
+        }
+        else if (other.gameObject.CompareTag("GoRight"))
+        {
+            
+        }
     }
 
     // Méthode appelée lorsqu'il est nécessaire de dessiner des gizmos pour le débogage
