@@ -16,8 +16,8 @@ public class PlayerController : MonoBehaviour
     public bool isboosingin;                // Placeholder, non utilisé dans ce script
     public CinemachineVirtualCamera vcam;   // Caméra virtuelle utilisée pour ajuster la vue
     public GameObject winui;                // Interface utilisateur de victoire
-    public Mesh newMesh1;
-    public Mesh newMesh2;
+    public Mesh newMesh1;                   //mesh voiture 1
+    public Mesh newMesh2;                   //mesh voiture 2
     private Rigidbody rb;                   // Composant Rigidbody du joueur
     private bool isGrounded;                // Indique si le joueur est au sol
     private const float LengthMultiplier = 4f;  // Facteur multiplicateur pour la longueur du rayon de débogage

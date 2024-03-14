@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Checksmanager : MonoBehaviour
 {
-    public int index;
-    public string str;
+    public int ColiderIndex;
+    public string TexteAfiche;
     public bool IsDisplayTextIn;
     public bool IsDisplayTextOut;
     public bool IsSpore;
