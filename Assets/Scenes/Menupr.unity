@@ -419,7 +419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c51740527f862c4489f73b19a48d08ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lenclig: 600
+  lenclig: 120
   txtclig: {fileID: 206935567}
   Mainmn: {fileID: 77297155}
   Startmn: {fileID: 767540869}
