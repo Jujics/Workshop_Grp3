@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     public float basicSp = 15.0f;          // Vitesse du joueur
     public float jumpForce = 10.0f;         // Force de saut du joueur
     public float frollbo = 25.0f;           // Bonus de vitesse du joueur
-    public double elec = 0;                    // Jauge d'electricitée
+    public double elec = 0;                 // Jauge d'electricitée
     public int n = 0;                       // Variable de comptage
     public bool isboosingout;               // Indique si le joueur accélère
     public bool isslowingout;               // Indique si le joueur ralentit
@@ -18,8 +18,12 @@ public class PlayerController : MonoBehaviour
     public GameObject winui;                // Interface utilisateur de victoire
     public Mesh newMesh1;                   //mesh voiture 1
     public Mesh newMesh2;                   //mesh voiture 2
+    public bool IsOnTurnLeft;               // Indique si le joueur est dans un virage vers la gauche
+    public bool IsOnTurnRight;              // Indique si le joueur est dans un virage vers la droite
     private Rigidbody rb;                   // Composant Rigidbody du joueur
     private bool isGrounded;                // Indique si le joueur est au sol
+    private float horizontalInput;  
+    private float verticalInput;
     private const float LengthMultiplier = 4f;  // Facteur multiplicateur pour la longueur du rayon de débogage
 
     private void Start()
@@ -197,11 +201,11 @@ public class PlayerController : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("GoLeft"))
         {
-
+            IsOnTurnLeft = true;
         }
         else if (other.gameObject.CompareTag("GoRight"))
         {
-            
+            IsOnTurnRight = true;
         }
     }
 

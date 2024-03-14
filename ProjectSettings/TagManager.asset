@@ -12,6 +12,8 @@ TagManager:
   - vpn
   - elecgiv
   - firewall
+  - GoRight
+  - GoLeft
   layers:
   - Default
   - TransparentFX
