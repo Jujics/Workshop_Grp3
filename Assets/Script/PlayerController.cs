@@ -165,7 +165,7 @@ public class PlayerController : MonoBehaviour
             Debug.Log(elec);
             float interpolationFactor = 10.0f;
             movementSpeed = Mathf.Lerp(movementSpeed, boostSp, interpolationFactor * Time.deltaTime);
-            elec -= 0.02;
+            elec -= 0.1;
         }
     }
 

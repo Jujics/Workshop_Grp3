@@ -34,7 +34,7 @@ public class Checksmanager : MonoBehaviour
         }
         else if (IsSpore)
         {
-            //
+            //do things to the player
         }
     }
 }
