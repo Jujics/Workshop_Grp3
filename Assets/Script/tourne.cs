@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class tourne : MonoBehaviour
 {
-    // Start is called before the first frame update
     void Start()
     {
         
@@ -13,6 +12,8 @@ public class tourne : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        float currentAngle = transform.rotation.eulerAngles.z;
+        currentAngle += 1;
+        transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, currentAngle);
     }
 }
