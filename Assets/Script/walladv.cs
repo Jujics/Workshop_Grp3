@@ -12,6 +12,7 @@ public class walladv : MonoBehaviour
     public bool Hasfirewall;
     private Rigidbody rb;
     private Scoremanager vari;
+    
 
     void Start()
     {
@@ -59,6 +60,18 @@ public class walladv : MonoBehaviour
         else if(Hasfirewall == false)
         {
             wallsp = 2;
+        }
+        if(Nearwall == true)
+        {
+            
+        }
+        else if(Critwall == true)
+        {
+
+        }
+        else
+        {
+
         }
         
 

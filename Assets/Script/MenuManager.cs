@@ -38,7 +38,7 @@ public class MenuManager : MonoBehaviour
         }
             
 
-        if (hasclic && lenclig == 120)
+        if (hasclic && lenclig == 60)
         {
             lenclig /= 3;
         }
@@ -48,7 +48,7 @@ public class MenuManager : MonoBehaviour
         if (hasclic && !onmenu)
         {
             ih += 1;
-            if (ih == 240)
+            if (ih == 120)
             {
                 Mainmn.SetActive(true);
                 Startmn.SetActive(false);
