@@ -53,13 +53,14 @@ public class walladv : MonoBehaviour
         {
             Critwall = true;
             Nearwall = false;
+            if(player.transform.position.z < transform.position.z)
+            {
+                vari.score -= 1;
+            }
         }
 
-        else if(player.transform.position.z < transform.position.z)
-        {
-            vari.score -= 1;
-        }
-        else if(Hasfirewall == false)
+        
+        if(Hasfirewall == false)
         {
             wallsp = 2;
         }
