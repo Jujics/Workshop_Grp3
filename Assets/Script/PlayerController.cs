@@ -245,6 +245,12 @@ public class PlayerController : MonoBehaviour
         {
             IsInFog = true;
         }
+        else if (other.gameObject.CompareTag("GravitySwitch"))
+        {
+            Physics.gravity = new Vector3(0, -20, 0);
+        }
+        
+        
     }
     void OnTriggerExit(Collider other)
     {
@@ -255,6 +261,10 @@ public class PlayerController : MonoBehaviour
         else if (other.gameObject.CompareTag("GoRight"))
         {
             IsOnTurnRight = false;  
+        }
+        else if (other.gameObject.CompareTag("GravitySwitch"))
+        {
+            Physics.gravity = new Vector3(0, -300, 0);
         }
     }
 
