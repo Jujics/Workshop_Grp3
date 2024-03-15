@@ -15,6 +15,7 @@ TagManager:
   - GoRight
   - GoLeft
   - Schroom
+  - GravitySwitch
   layers:
   - Default
   - TransparentFX

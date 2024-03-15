@@ -99,14 +99,14 @@ public class PlayerController : MonoBehaviour
             // Si la variable de comptage est inférieure à 100, ralentir la vitesse
             if (n <= 100)
             {
-                movementSpeed += -0.01f;
+                movementSpeed += -0.2f;
                 n += 1;
-                vcam.m_Lens.FieldOfView -= 0.25f;
+                vcam.m_Lens.FieldOfView -= 0.5f;
             }
             // Si la variable de comptage est entre 100 et 200, ralentir la vitesse plus lentement
             else if (n > 100 && n < 200)
             {
-                movementSpeed += -0.005f;
+                movementSpeed += -0.05f;
                 n += 1;
             }
             // Sinon, réinitialiser la variable de comptage et arrêter le ralentissement
