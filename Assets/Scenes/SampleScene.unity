@@ -5343,7 +5343,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 59.99994
+  field of view: 59.99997
   orthographic: 0
   orthographic size: 10
   m_Depth: -1
@@ -5805,7 +5805,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 1625530634}
   m_Follow: {fileID: 1625530634}
   m_Lens:
-    FieldOfView: 59.99994
+    FieldOfView: 59.99997
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -11668,6 +11668,7 @@ MonoBehaviour:
   i: 0
   Nearwall: 0
   Hasfirewall: 0
+  material: {fileID: 2100000, guid: f4d7d75333f21ff41ad1e5b67abe2afd, type: 2}
 --- !u!65 &1835197107
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11696,7 +11697,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1835197105}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -11709,7 +11710,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 8254933778391044991, guid: c7db1b0fba2678f478559c84093a5784, type: 2}
+  - {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

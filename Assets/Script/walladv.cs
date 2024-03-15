@@ -12,6 +12,8 @@ public class walladv : MonoBehaviour
     public bool Hasfirewall;
     private Rigidbody rb;
     private Scoremanager vari;
+    public Material material;
+
     
 
     void Start()
@@ -61,17 +63,26 @@ public class walladv : MonoBehaviour
         {
             wallsp = 2;
         }
-        if(Nearwall == true)
+        if (Nearwall) 
         {
-            
-        }
-        else if(Critwall == true)
+            float InterpolationFactorNoise = 3.0f;
+            float InterpolationFactorScanline = 0.1f;
+            material.SetFloat("_noise_amount", Mathf.Lerp(material.GetFloat("_noise_amount"), 50f, InterpolationFactorNoise * Time.deltaTime));
+            material.SetFloat("_Scan_Line_Strength", Mathf.Lerp(material.GetFloat("_Scan_Line_Strength"), 0.5f, InterpolationFactorScanline * Time.deltaTime));
+        } 
+        else if (Critwall) 
         {
-
-        }
-        else
+            float InterpolationFactorNoise = 3.0f;
+            float InterpolationFactorScanline = 0.1f;
+            material.SetFloat("_noise_amount", Mathf.Lerp(material.GetFloat("_noise_amount"), 100f, InterpolationFactorNoise * Time.deltaTime));
+            material.SetFloat("_Scan_Line_Strength", Mathf.Lerp(material.GetFloat("_Scan_Line_Strength"), 0f, InterpolationFactorScanline * Time.deltaTime));
+        } 
+        else 
         {
-
+            float InterpolationFactorNoise = 3.0f;
+            float InterpolationFactorScanline = 0.1f;
+            material.SetFloat("_noise_amount", Mathf.Lerp(material.GetFloat("_noise_amount"), 0f, InterpolationFactorNoise * Time.deltaTime));
+            material.SetFloat("_Scan_Line_Strength", Mathf.Lerp(material.GetFloat("_Scan_Line_Strength"), 1f, InterpolationFactorScanline * Time.deltaTime));
         }
         
 
