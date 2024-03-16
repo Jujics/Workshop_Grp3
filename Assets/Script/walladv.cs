@@ -38,6 +38,10 @@ public class walladv : MonoBehaviour
                 Hasfirewall = false;
             }
         }
+        if(player.transform.position.z < transform.position.z)
+        {
+            vari.score -= 1;
+        }
         if (player.transform.position.z >= transform.position.z + 20 && Hasfirewall == false) 
         {
             wallsp = 10;
@@ -53,10 +57,6 @@ public class walladv : MonoBehaviour
         {
             Critwall = true;
             Nearwall = false;
-            if(player.transform.position.z < transform.position.z)
-            {
-                vari.score -= 1;
-            }
         }
 
         

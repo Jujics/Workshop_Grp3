@@ -63,13 +63,13 @@ public class PlayerController : MonoBehaviour
         if (isboosingout == true)
         {
             // Si la variable de comptage est inférieure à 100, augmenter la vitesse
-            if (n <= 100)
+            if (n <= 60)
             {
                 movementSpeed += 0.5f;
                 n += 1;
             }
             // Si la variable de comptage est entre 100 et 200, augmenter la vitesse plus lentement
-            else if (n > 100 && n < 200)
+            else if (n > 60 && n < 80)
             {
                 movementSpeed += 0.2f;
                 n += 1;
@@ -97,16 +97,16 @@ public class PlayerController : MonoBehaviour
         if (isslowingout == true)
         {
             // Si la variable de comptage est inférieure à 100, ralentir la vitesse
-            if (n <= 100)
+            if (n <= 60)
             {
-                movementSpeed += -0.2f;
+                movementSpeed -= 0.5f;
                 n += 1;
-                vcam.m_Lens.FieldOfView -= 0.5f;
+                vcam.m_Lens.FieldOfView -= 0.2f;
             }
             // Si la variable de comptage est entre 100 et 200, ralentir la vitesse plus lentement
-            else if (n > 100 && n < 200)
+            else if (n > 60 && n < 80)
             {
-                movementSpeed += -0.05f;
+                movementSpeed -= 0.2f;
                 n += 1;
             }
             // Sinon, réinitialiser la variable de comptage et arrêter le ralentissement
