@@ -2586,14 +2586,14 @@ MonoBehaviour:
   m_ZDamping: 1
   m_TargetMovementOnly: 1
   m_ScreenX: 0.5
-  m_ScreenY: 0.5
+  m_ScreenY: 0.597
   m_CameraDistance: 5.9
-  m_DeadZoneWidth: 0.11
+  m_DeadZoneWidth: 0.031
   m_DeadZoneHeight: 0
   m_DeadZoneDepth: 0
   m_UnlimitedSoftZone: 0
-  m_SoftZoneWidth: 0.8
-  m_SoftZoneHeight: 0.8
+  m_SoftZoneWidth: 0.733
+  m_SoftZoneHeight: 0.248
   m_BiasX: 0
   m_BiasY: 0
   m_CenterOnActivate: 1
@@ -6163,7 +6163,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 59.99989
+  field of view: 59.99991
   orthographic: 0
   orthographic size: 10
   m_Depth: -1
@@ -6189,8 +6189,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.054847583, y: -2.3158268e-10, z: 1.2720872e-11, w: 0.99849474}
-  m_LocalPosition: {x: 228.5, y: 103.62623, z: 520.0655}
+  m_LocalRotation: {x: 0.08411262, y: 0, z: 0, w: 0.9964563}
+  m_LocalPosition: {x: 228.5, y: 104.62048, z: 520.22424}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6596,14 +6596,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1025255609}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.054847583, y: -2.3158268e-10, z: 1.2720872e-11, w: 0.99849474}
-  m_LocalPosition: {x: 228.5, y: 103.62623, z: 520.0655}
+  m_LocalRotation: {x: 0.08411262, y: 0, z: 0, w: 0.9964563}
+  m_LocalPosition: {x: 228.5, y: 104.62048, z: 520.22424}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 349214986}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 9.65, y: 0, z: 0}
 --- !u!114 &1025255611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6625,7 +6625,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 1625530634}
   m_Follow: {fileID: 1625530634}
   m_Lens:
-    FieldOfView: 59.99989
+    FieldOfView: 59.99991
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -11273,7 +11273,10 @@ MonoBehaviour:
   IsOnTurnLeft: 0
   IsOnTurnRight: 0
   IsInFog: 0
+  HasCombo: 0
   FogCount: 0
+  Combo: 0
+  BestCombo: 0
 --- !u!23 &1625530632
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15237,7 +15240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpeedTxt: {fileID: 143553366}
-  ComboTxt: {fileID: 824365569}
+  ComboTxt: {fileID: 178931616}
   TimeTxt: {fileID: 797237876}
   PourcentTxt: {fileID: 704449624}
   Player: {fileID: 1625530629}
