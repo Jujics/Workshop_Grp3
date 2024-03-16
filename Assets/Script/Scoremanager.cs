@@ -52,11 +52,13 @@ public class Scoremanager : MonoBehaviour
         {
             score += 20;
             other.gameObject.SetActive(false);
+            PL.HasCombo = true;
         }
         else if (other.gameObject.CompareTag("bgscoreobj"))
         {
             score += 100;
             other.gameObject.SetActive(false);
+            PL.HasCombo = true;
         }
     }
 }

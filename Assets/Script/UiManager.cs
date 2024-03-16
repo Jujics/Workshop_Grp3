@@ -22,5 +22,6 @@ public class UiManager : MonoBehaviour
     {
         string MvtDisplay = Playerc.movementSpeed.ToString("0.00");
         SpeedTxt.text = MvtDisplay ;
+        ComboTxt.text = "x"+Playerc.Combo;
     }
 }

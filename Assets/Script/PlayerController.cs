@@ -21,7 +21,11 @@ public class PlayerController : MonoBehaviour
     public bool IsOnTurnLeft;               // Indique si le joueur est dans un virage vers la gauche
     public bool IsOnTurnRight;              // Indique si le joueur est dans un virage vers la droite
     public bool IsInFog;
+    public bool HasCombo;
     public int FogCount = 0;
+    public int Combo = 0;
+    public int BestCombo = 0;
+    private int LastComboTime = 0;
     private Rigidbody rb;                   // Composant Rigidbody du joueur
     private bool isGrounded;                // Indique si le joueur est au sol
     private float horizontalInput;  
@@ -49,6 +53,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        HasCombo = false;
         if(IsInFog)
         {
             RenderSettings.fogDensity = 0.1f;
@@ -62,6 +67,10 @@ public class PlayerController : MonoBehaviour
         // Gestion de l'accélération du joueur
         if (isboosingout == true)
         {
+            if(n == 0)
+            {
+                HasCombo = true;
+            }
             // Si la variable de comptage est inférieure à 100, augmenter la vitesse
             if (n <= 60)
             {
@@ -194,6 +203,7 @@ public class PlayerController : MonoBehaviour
         // Appliquer la vélocité pour déplacer le joueur
         elecmanager();
         rb.velocity = new Vector3(moveDirection.x * movementSpeed, rb.velocity.y, moveDirection.z * movementSpeed);
+        ComboManager(HasCombo);
     }
 
     public void elecmanager()
@@ -280,5 +290,25 @@ public class PlayerController : MonoBehaviour
         // Dessiner un rayon de débogage
         Gizmos.color = Color.red;
         Gizmos.DrawRay(playerpos, moveDirection * LengthMultiplier);
+    }
+    public void ComboManager(bool HasCombo)
+    {
+        if(HasCombo)
+        {
+            Combo += 1;
+            LastComboTime = 0;
+        }
+        else
+        {
+            LastComboTime += 1;
+        }
+        if(LastComboTime == 300)
+        {
+            Combo = 0;
+        }
+        if(Combo > BestCombo)
+        {
+            BestCombo = Combo;
+        }
     }
 }
