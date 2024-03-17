@@ -5,6 +5,7 @@ using UnityEngine;
 public class Scoremanager : MonoBehaviour
 {
     public int score = 100000;
+    public int OldScore = 100000;
     public GameObject loseui;
     private PlayerController PL;
     private Powerupmanager PW;
@@ -17,10 +18,20 @@ public class Scoremanager : MonoBehaviour
 
     private void Update()
     {
+        if (OldScore < score)
+        {
+            PL.Combo += 1;
+            PL.LastComboTime = 0;
+        }
+        else
+        {
+            PL.LastComboTime += 1;
+        }
         if (score <= -1)
         {
             loseui.SetActive(true);
-        }   
+        }
+        OldScore = score;   
     }
     private void OnTriggerEnter(Collider other)
     {

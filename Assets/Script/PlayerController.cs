@@ -16,8 +16,8 @@ public class PlayerController : MonoBehaviour
     public bool isboosingin;                // Placeholder, non utilisé dans ce script
     public CinemachineVirtualCamera vcam;   // Caméra virtuelle utilisée pour ajuster la vue
     public GameObject winui;                // Interface utilisateur de victoire
-    public Mesh newMesh1;                   //mesh voiture 1
-    public Mesh newMesh2;                   //mesh voiture 2
+    public Mesh[] newMesh;
+    public Material[] newMaterial;    
     public bool IsOnTurnLeft;               // Indique si le joueur est dans un virage vers la gauche
     public bool IsOnTurnRight;              // Indique si le joueur est dans un virage vers la droite
     public bool IsInFog;
@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
     public int FogCount = 0;
     public int Combo = 0;
     public int BestCombo = 0;
-    private int LastComboTime = 0;
+    public int LastComboTime = 0;
     private Rigidbody rb;                   // Composant Rigidbody du joueur
     private bool isGrounded;                // Indique si le joueur est au sol
     private float horizontalInput;  
@@ -38,17 +38,72 @@ public class PlayerController : MonoBehaviour
         MeshFilter meshFilter = GetComponent<MeshFilter>();
         int agrs = PlayerPrefs.GetInt("CarSelection");
         Debug.Log("test" + agrs);
-        if (agrs == 1)
-        {
-            meshFilter.mesh = newMesh1;
-        }
-        else if (agrs == 0)
-        {
-            meshFilter.mesh = newMesh2;
-        }
+        meshFilter.mesh = newMesh[agrs];
         movementSpeed = 0f;
         // Initialisation du composant Rigidbody au démarrage
         rb = GetComponent<Rigidbody>();
+        SphereCollider sphereColider = GetComponent<SphereCollider>();
+        MeshRenderer meshRenderer = GetComponent<MeshRenderer>();
+        meshRenderer.material = newMaterial[agrs];
+        switch (agrs)
+        {
+            case 0:
+                sphereColider.radius = 0.0004043102f;
+                Vector3 scale0 = new Vector3(4436.104f, 3909.899f, 3909.9f);
+                Vector3 rotation0 = new Vector3(270f, 0f, 0f);
+                transform.localScale = scale0;
+                transform.rotation = Quaternion.Euler(rotation0);
+                break;
+            case 1:
+                sphereColider.radius = 0.0004043102f;
+                Vector3 scale1 = new Vector3(4436.104f, 3909.899f, 3909.9f);
+                Vector3 rotation1 = new Vector3(270f, 0f, 0f);
+                transform.localScale = scale1;
+                transform.rotation = Quaternion.Euler(rotation1);
+                break;
+            case 2:
+                sphereColider.radius = 0.002009017f;
+                Vector3 scale2 = new Vector3(556.9395f, 490.8761f, 490.8762f);
+                Vector3 rotation2 = new Vector3(270f, 0f, 0f);
+                transform.localScale = scale2;
+                transform.rotation = Quaternion.Euler(rotation2);
+                break;
+            case 3:
+                sphereColider.radius = 0.01704096f;
+                Vector3 scale3 = new Vector3(118.8398f, 104.7431f, 104.7432f);
+                Vector3 rotation3 = new Vector3(270f, 0f, 0f);
+                transform.localScale = scale3;
+                transform.rotation = Quaternion.Euler(rotation3);
+                break;
+            case 4:
+                sphereColider.radius = 0.01704096f;
+                Vector3 scale4 = new Vector3(118.8398f, 104.7431f, 104.7432f);
+                Vector3 rotation4 = new Vector3(270f, 0f, 0f);
+                transform.localScale = scale4;
+                transform.rotation = Quaternion.Euler(rotation4);
+                break;
+            case 5:
+                sphereColider.radius = 0.01701497f;
+                Vector3 scale5 = new Vector3(869.2874f, 766.1737f, 766.1738f);
+                Vector3 rotation5 = new Vector3(270f, 0f, 90f);
+                transform.localScale = scale5;
+                transform.rotation = Quaternion.Euler(rotation5);
+                break;
+            case 6:
+                sphereColider.radius = 0.01701497f;
+                Vector3 scale6 = new Vector3(869.2874f, 766.1737f, 766.1738f);
+                Vector3 rotation6 = new Vector3(270f, 0f, 90f);
+                transform.localScale = scale6;
+                transform.rotation = Quaternion.Euler(rotation6);
+                break;
+            case 7:
+                sphereColider.radius = 0.001772515f;
+                Vector3 scale7 = new Vector3(869.2874f, 766.1737f, 766.1738f);
+                Vector3 rotation7 = new Vector3(270f, 0f, 180f);
+                transform.localScale = scale7;
+                transform.rotation = Quaternion.Euler(rotation7);
+                break;
+        }
     }
 
     private void Update()
@@ -293,16 +348,7 @@ public class PlayerController : MonoBehaviour
     }
     public void ComboManager(bool HasCombo)
     {
-        if(HasCombo)
-        {
-            Combo += 1;
-            LastComboTime = 0;
-        }
-        else
-        {
-            LastComboTime += 1;
-        }
-        if(LastComboTime == 300)
+        if(LastComboTime >= 300)
         {
             Combo = 0;
         }
