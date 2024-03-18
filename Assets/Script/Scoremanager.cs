@@ -18,7 +18,7 @@ public class Scoremanager : MonoBehaviour
         Application.targetFrameRate = 60;
         PL = GetComponent<PlayerController>();
         PW = GetComponent<Powerupmanager>();
-        visualEffect = recupere.GetComponent<VisualEffect>()
+        visualEffect = recupere.GetComponent<VisualEffect>();
     }
 
     private void Update()
