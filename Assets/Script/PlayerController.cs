@@ -312,7 +312,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("GravitySwitch"))
         {
-            Physics.gravity = new Vector3(0, -20, 0);
+            Physics.gravity = new Vector3(0, -30, 0);
         }
         
         

@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
+
 
 public class Scoremanager : MonoBehaviour
 {
     public int score = 100000;
     public int OldScore = 100000;
     public GameObject loseui;
+    public GameObject recupere; 
+    private VisualEffect visualEffect;
     private PlayerController PL;
     private Powerupmanager PW;
     private void Start()
@@ -14,6 +18,7 @@ public class Scoremanager : MonoBehaviour
         Application.targetFrameRate = 60;
         PL = GetComponent<PlayerController>();
         PW = GetComponent<Powerupmanager>();
+        visualEffect = recupere.GetComponent<VisualEffect>()
     }
 
     private void Update()
@@ -64,12 +69,14 @@ public class Scoremanager : MonoBehaviour
             score += 20;
             other.gameObject.SetActive(false);
             PL.HasCombo = true;
+            visualEffect.Play();
         }
         else if (other.gameObject.CompareTag("bgscoreobj"))
         {
             score += 100;
             other.gameObject.SetActive(false);
             PL.HasCombo = true;
+            visualEffect.Play();
         }
     }
 }
