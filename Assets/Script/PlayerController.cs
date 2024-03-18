@@ -111,7 +111,7 @@ public class PlayerController : MonoBehaviour
         HasCombo = false;
         if(IsInFog)
         {
-            RenderSettings.fogDensity = 0.1f;
+            RenderSettings.fogDensity = 0.07f;
             FogCount += 1;
             if (FogCount == 200)
             {
