@@ -10,9 +10,11 @@ public class walladv : MonoBehaviour
     public int i;
     public bool Nearwall;
     public bool Hasfirewall;
+    public Material material;
+    private Checksmanager Checks;
     private Rigidbody rb;
     private Scoremanager vari;
-    public Material material;
+    
 
     
 
@@ -21,6 +23,7 @@ public class walladv : MonoBehaviour
         Application.targetFrameRate = 60;
         rb = GetComponent<Rigidbody>();
         vari = player.GetComponent<Scoremanager>();
+        Checks = player.GetComponent<Checksmanager>();
     }
 
     void Update()
@@ -28,7 +31,7 @@ public class walladv : MonoBehaviour
         Vector3 spd = new Vector3(0.0f, 0.0f, 2.0f);
         rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, spd.z * wallsp);
 
-        if (Hasfirewall == true)
+        if (Hasfirewall == true && Checks.InAdslIn == true)
         {
             wallsp = 0;
             i += 1;

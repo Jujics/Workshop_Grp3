@@ -1,22 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 public class Checksmanager : MonoBehaviour
 {
-    public int ColiderIndex;
-    public string TexteAfiche;
+    public string[] TexteAfficheHolder;
+    public GameObject Canvastuto;
+    public TMP_Text TextAffiche;
     public bool IsDisplayTextIn;
     public bool IsDisplayTextOut;
-    public bool IsSpore;
     public bool InAdslIn;
     public bool InAdslOut;
-    public bool InFibreIn;
-    public bool InFibreOut;
+    private float RefTime;
+    private int i = 0;
 
     void Start()
     {
         Application.targetFrameRate = 60;
+        RefTime = Time.timeScale;
     }
 
     // Update is called once per frame
@@ -24,17 +27,37 @@ public class Checksmanager : MonoBehaviour
     {
         if (IsDisplayTextIn)
         {
-            //set.active(text)
-            //text.settext
+            Canvastuto.SetActive(true);
+            TextAffiche.text = TexteAfficheHolder[i];
+            Time.timeScale = 0.05f;
         }
-        else if (IsDisplayTextOut)
+        else if (!IsDisplayTextIn)
         {
-            //set.active(text)false
-            //text.settext
+            Canvastuto.SetActive(false);
+            Time.timeScale = RefTime;
         }
-        else if (IsSpore)
+    }
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("InTextZone"))
         {
-            //do things to the player
+            IsDisplayTextIn = true;
+        }
+        if (other.gameObject.CompareTag("InAdslIn"))
+        {
+            InAdslIn = true;
+        }
+        if (other.gameObject.CompareTag("InAdslOut"))
+        {
+            InAdslIn = false;
+        }
+    }
+    void OnTriggerExit(Collider other)
+    {
+        if(other.gameObject.CompareTag("InTextZone"))
+        {
+            IsDisplayTextIn = false;
+            i += i;
         }
     }
 }

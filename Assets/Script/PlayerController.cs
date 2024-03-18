@@ -76,9 +76,9 @@ public class PlayerController : MonoBehaviour
                 transform.rotation = Quaternion.Euler(rotation3);
                 break;
             case 4:
-                sphereColider.radius = 0.01704096f;
-                Vector3 scale4 = new Vector3(118.8398f, 104.7431f, 104.7432f);
-                Vector3 rotation4 = new Vector3(270f, 0f, 0f);
+                sphereColider.radius = 0.0026813f;
+                Vector3 scale4 = new Vector3(808.5741f, 712.6616f, 712.6622f);
+                Vector3 rotation4 = new Vector3(270f, 0f, 180f);
                 transform.localScale = scale4;
                 transform.rotation = Quaternion.Euler(rotation4);
                 break;
@@ -283,6 +283,7 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("winwall"))
         {
+            
             winui.SetActive(true);
         }
         else if (other.gameObject.CompareTag("elecgiv"))
@@ -312,7 +313,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("GravitySwitch"))
         {
-            Physics.gravity = new Vector3(0, -20, 0);
+            Physics.gravity = new Vector3(0, -30, 0);
         }
         
         
