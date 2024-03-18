@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class UiManager : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class UiManager : MonoBehaviour
     public TMP_Text ScoreTxt;
     public GameObject Player;
     public TMP_Text timeText;
+    public Image ElecBar;
     private float startTime;
     private bool isRunning;
     private PlayerController Playerc;
@@ -25,6 +27,8 @@ public class UiManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        float outputValue = (float)(Playerc.elec/ 100.000000);
+        ElecBar.fillAmount = outputValue;
         string MvtDisplay = Playerc.movementSpeed.ToString("0.00");
         SpeedTxt.text = MvtDisplay ;
         ComboTxt.text = "x"+Playerc.Combo;
