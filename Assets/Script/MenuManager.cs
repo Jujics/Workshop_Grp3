@@ -14,8 +14,7 @@ public class MenuManager : MonoBehaviour
     public GameObject Credits;
     public GameObject Carch;
     public GameObject Button;
-    public GameObject Car1;
-    public GameObject Car2;
+    public GameObject[] Voitures;
     public bool hasclic;
     public int i = 0;
     public int ih = 0;
@@ -38,7 +37,7 @@ public class MenuManager : MonoBehaviour
         }
             
 
-        if (hasclic && lenclig == 120)
+        if (hasclic && lenclig == 60)
         {
             lenclig /= 3;
         }
@@ -48,7 +47,7 @@ public class MenuManager : MonoBehaviour
         if (hasclic && !onmenu)
         {
             ih += 1;
-            if (ih == 240)
+            if (ih == 120)
             {
                 Mainmn.SetActive(true);
                 Startmn.SetActive(false);
@@ -58,13 +57,21 @@ public class MenuManager : MonoBehaviour
         }
         if (p == 0)
         {
-            Car1.SetActive(true);
-            Car2.SetActive(false);
+            Voitures[p].SetActive(true);
+            Voitures[p+1].SetActive(false);
+            Voitures[7].SetActive(false);
         }
-        else if (p == 1)
+        else if (p < 7 && p > 0)
         {
-            Car1.SetActive(false);
-            Car2.SetActive(true);
+            Voitures[p].SetActive(true);
+            Voitures[p+1].SetActive(false);
+            Voitures[p-1].SetActive(false);
+        }
+        if (p == 7)
+        {
+            Voitures[p].SetActive(true);
+            Voitures[p-1].SetActive(false);
+            Voitures[0].SetActive(false);
         }
         
         if (i >= lenclig)
@@ -113,23 +120,23 @@ public class MenuManager : MonoBehaviour
     {
         if (p == 0)
         {
-            p = 1;
+            p = 7;
         }
         else
         {
-            p = 0;
+            p -= 1;
         }
     }
 
     public void Onclicright()
     {
-        if (p == 1)
+        if (p == 7)
         {
             p = 0;
         }
         else
         {
-            p = 1;
+            p += 1;
         }
     }
 

@@ -12,6 +12,9 @@ public class walladv : MonoBehaviour
     public bool Hasfirewall;
     private Rigidbody rb;
     private Scoremanager vari;
+    public Material material;
+
+    
 
     void Start()
     {
@@ -35,6 +38,10 @@ public class walladv : MonoBehaviour
                 Hasfirewall = false;
             }
         }
+        if(player.transform.position.z < transform.position.z)
+        {
+            vari.score -= 1;
+        }
         if (player.transform.position.z >= transform.position.z + 20 && Hasfirewall == false) 
         {
             wallsp = 10;
@@ -52,13 +59,31 @@ public class walladv : MonoBehaviour
             Nearwall = false;
         }
 
-        else if(player.transform.position.z < transform.position.z)
-        {
-            vari.score -= 1;
-        }
-        else if(Hasfirewall == false)
+        
+        if(Hasfirewall == false)
         {
             wallsp = 2;
+        }
+        if (Nearwall) 
+        {
+            float InterpolationFactorNoise = 3.0f;
+            float InterpolationFactorScanline = 0.1f;
+            material.SetFloat("_noise_amount", Mathf.Lerp(material.GetFloat("_noise_amount"), 50f, InterpolationFactorNoise * Time.deltaTime));
+            material.SetFloat("_Scan_Line_Strength", Mathf.Lerp(material.GetFloat("_Scan_Line_Strength"), 0.5f, InterpolationFactorScanline * Time.deltaTime));
+        } 
+        else if (Critwall) 
+        {
+            float InterpolationFactorNoise = 3.0f;
+            float InterpolationFactorScanline = 0.1f;
+            material.SetFloat("_noise_amount", Mathf.Lerp(material.GetFloat("_noise_amount"), 100f, InterpolationFactorNoise * Time.deltaTime));
+            material.SetFloat("_Scan_Line_Strength", Mathf.Lerp(material.GetFloat("_Scan_Line_Strength"), 0f, InterpolationFactorScanline * Time.deltaTime));
+        } 
+        else 
+        {
+            float InterpolationFactorNoise = 3.0f;
+            float InterpolationFactorScanline = 0.1f;
+            material.SetFloat("_noise_amount", Mathf.Lerp(material.GetFloat("_noise_amount"), 0f, InterpolationFactorNoise * Time.deltaTime));
+            material.SetFloat("_Scan_Line_Strength", Mathf.Lerp(material.GetFloat("_Scan_Line_Strength"), 1f, InterpolationFactorScanline * Time.deltaTime));
         }
         
 

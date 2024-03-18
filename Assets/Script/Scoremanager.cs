@@ -1,11 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
+
 
 public class Scoremanager : MonoBehaviour
 {
     public int score = 100000;
+    public int OldScore = 100000;
     public GameObject loseui;
+    public GameObject recupere; 
+    public int multitroubleshoot;
+    private VisualEffect visualEffect;
     private PlayerController PL;
     private Powerupmanager PW;
     private void Start()
@@ -13,14 +19,33 @@ public class Scoremanager : MonoBehaviour
         Application.targetFrameRate = 60;
         PL = GetComponent<PlayerController>();
         PW = GetComponent<Powerupmanager>();
+        visualEffect = recupere.GetComponent<VisualEffect>();
     }
 
     private void Update()
     {
+        if (OldScore < score)
+        {
+            PL.Combo += 1;
+            PL.LastComboTime = 0;
+        }
+        else
+        {
+            PL.LastComboTime += 1;
+        }
         if (score <= -1)
         {
             loseui.SetActive(true);
-        }   
+        }
+        OldScore = score;  
+        if (PL.Combo == 0)
+        {
+            multitroubleshoot = PL.Combo + 1;
+        } 
+        else
+        {
+            multitroubleshoot = PL.Combo;
+        }
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -40,7 +65,7 @@ public class Scoremanager : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("froll"))
         {
-            score += 100;
+            score += 100*multitroubleshoot;
             PL.isboosingout = true;
         }
         else if (other.gameObject.CompareTag("froll") && other.gameObject.CompareTag("dmgin"))
@@ -50,13 +75,17 @@ public class Scoremanager : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("smscoreobj"))
         {
-            score += 20;
+            score += 20*multitroubleshoot;
             other.gameObject.SetActive(false);
+            PL.HasCombo = true;
+            visualEffect.Play();
         }
         else if (other.gameObject.CompareTag("bgscoreobj"))
         {
-            score += 100;
+            score += 100*multitroubleshoot;
             other.gameObject.SetActive(false);
+            PL.HasCombo = true;
+            visualEffect.Play();
         }
     }
 }
