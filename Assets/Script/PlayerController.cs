@@ -283,6 +283,7 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("winwall"))
         {
+            
             winui.SetActive(true);
         }
         else if (other.gameObject.CompareTag("elecgiv"))

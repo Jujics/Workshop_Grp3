@@ -38,7 +38,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _Glitch_Strength: 0
-    - _Scan_Line_Strength: 0.9965675
-    - _noise_amount: 1.816035e-31
+    - _Scan_Line_Strength: 0.99551517
+    - _noise_amount: 5.6534575e-25
     m_Colors: []
   m_BuildTextureStacks: []
