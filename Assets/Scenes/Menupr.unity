@@ -620,7 +620,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &77297156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2927,7 +2927,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &737425375 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 8605551139246364611, guid: 24a913880d6ebe74296086fe7d5d4cd5, type: 3}
+  m_CorrespondingSourceObject: {fileID: 3355722307067740082, guid: 24a913880d6ebe74296086fe7d5d4cd5, type: 3}
   m_PrefabInstance: {fileID: 2087858426}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &737425378
@@ -3094,7 +3094,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &767540870
 MonoBehaviour:
   m_ObjectHideFlags: 0
