@@ -18,6 +18,8 @@ TagManager:
   - GravitySwitch
   - InTextZone
   - FrollElec
+  - InAdslIn
+  - InAdslOut
   layers:
   - Default
   - TransparentFX

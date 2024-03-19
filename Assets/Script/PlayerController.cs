@@ -84,20 +84,13 @@ public class PlayerController : MonoBehaviour
                 transform.rotation = Quaternion.Euler(rotation4);
                 break;
             case 5:
-                sphereColider.radius = 0.01701497f;
-                Vector3 scale5 = new Vector3(869.2874f, 766.1737f, 766.1738f);
-                Vector3 rotation5 = new Vector3(270f, 0f, 90f);
-                transform.localScale = scale5;
-                transform.rotation = Quaternion.Euler(rotation5);
-                break;
-            case 6:
-                sphereColider.radius = 0.01701497f;
+                sphereColider.radius = 0.001852255f;
                 Vector3 scale6 = new Vector3(869.2874f, 766.1737f, 766.1738f);
-                Vector3 rotation6 = new Vector3(270f, 0f, 90f);
+                Vector3 rotation6 = new Vector3(270f, 0f, 180f);
                 transform.localScale = scale6;
                 transform.rotation = Quaternion.Euler(rotation6);
                 break;
-            case 7:
+            case 6:
                 sphereColider.radius = 0.001772515f;
                 Vector3 scale7 = new Vector3(869.2874f, 766.1737f, 766.1738f);
                 Vector3 rotation7 = new Vector3(270f, 0f, 180f);
@@ -109,6 +102,10 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if(movementSpeed >= 60)
+        {
+            vcam.m_Lens.FieldOfView = movementSpeed; 
+        }
         HasCombo = false;
         if(IsInFog)
         {
