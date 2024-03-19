@@ -219,6 +219,7 @@ MonoBehaviour:
   jumpForce: 10
   frollbo: 25
   elec: 100
+  impulseForce: 200
   n: 0
   isboosingout: 0
   isslowingout: 0
@@ -231,7 +232,6 @@ MonoBehaviour:
   - {fileID: -6976696464464012183, guid: 17197a052784b0b46af95143e678f23a, type: 3}
   - {fileID: 4858910565018799326, guid: 68af508c6ac64924781618d25a302b27, type: 3}
   - {fileID: 4589371176538602870, guid: 20334d1d83279144681efd974690069b, type: 3}
-  - {fileID: -5495902117074765545, guid: 9aeb6bb3512589842ab3e83fc9db63a1, type: 3}
   - {fileID: -8302856757195774222, guid: f199842bae9d3274e9520bafd27f55fd, type: 3}
   - {fileID: 4554111531531658343, guid: 679cd830fdeec61438beeea8b9fdb324, type: 3}
   newMaterial:
@@ -240,7 +240,6 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 07666512634bf5345a3616aad1c0010c, type: 2}
   - {fileID: 2100000, guid: d3a11b52d4f04ec4d8e5f5caf4760a65, type: 2}
   - {fileID: 2100000, guid: b1109f086193b8941bd82af5fee5ab60, type: 2}
-  - {fileID: 2100000, guid: ba2dc431ff0014a429589e77293c05a8, type: 2}
   - {fileID: 2100000, guid: ede9df0bf60c0a946b61b7d94c3dc089, type: 2}
   - {fileID: 2100000, guid: 64fba79a9003456498e1f23101cc0b93, type: 2}
   IsOnTurnLeft: 0
