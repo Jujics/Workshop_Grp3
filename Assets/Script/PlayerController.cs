@@ -102,6 +102,10 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if(movementSpeed >= 60)
+        {
+            vcam.m_Lens.FieldOfView = movementSpeed; 
+        }
         HasCombo = false;
         if(IsInFog)
         {
