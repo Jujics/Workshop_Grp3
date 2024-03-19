@@ -161,17 +161,11 @@ public class PlayerController : MonoBehaviour
         if (isslowingout == true)
         {
             // Si la variable de comptage est inférieure à 100, ralentir la vitesse
-            if (n <= 60)
+            if (n <= 30)
             {
-                movementSpeed -= 0.5f;
+                movementSpeed -= 1.5f;
                 n += 1;
-                vcam.m_Lens.FieldOfView -= 0.2f;
-            }
-            // Si la variable de comptage est entre 100 et 200, ralentir la vitesse plus lentement
-            else if (n > 60 && n < 80)
-            {
-                movementSpeed -= 0.2f;
-                n += 1;
+                vcam.m_Lens.FieldOfView -= 1f;
             }
             // Sinon, réinitialiser la variable de comptage et arrêter le ralentissement
             else
@@ -313,9 +307,7 @@ public class PlayerController : MonoBehaviour
         else if (other.gameObject.CompareTag("GravitySwitch"))
         {
             Physics.gravity = new Vector3(0, -30, 0);
-        }
-        
-        
+        }  
     }
     void OnTriggerExit(Collider other)
     {

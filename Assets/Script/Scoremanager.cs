@@ -68,6 +68,11 @@ public class Scoremanager : MonoBehaviour
             score += 100*multitroubleshoot;
             PL.isboosingout = true;
         }
+        else if (other.gameObject.CompareTag("FrollElec"))
+        {
+            PL.elec += 100;
+            PL.isboosingout = true;
+        }
         else if (other.gameObject.CompareTag("froll") && other.gameObject.CompareTag("dmgin"))
         {
             score -= 100;
