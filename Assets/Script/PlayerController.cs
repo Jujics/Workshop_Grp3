@@ -111,7 +111,7 @@ public class PlayerController : MonoBehaviour
         HasCombo = false;
         if(IsInFog)
         {
-            RenderSettings.fogDensity = 0.1f;
+            RenderSettings.fogDensity = 0.07f;
             FogCount += 1;
             if (FogCount == 200)
             {
@@ -283,7 +283,6 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("winwall"))
         {
-            
             winui.SetActive(true);
         }
         else if (other.gameObject.CompareTag("elecgiv"))

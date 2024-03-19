@@ -16,6 +16,7 @@ TagManager:
   - GoLeft
   - Schroom
   - GravitySwitch
+  - InTextZone
   layers:
   - Default
   - TransparentFX
