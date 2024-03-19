@@ -59,15 +59,15 @@ public class MenuManager : MonoBehaviour
         {
             Voitures[p].SetActive(true);
             Voitures[p+1].SetActive(false);
-            Voitures[7].SetActive(false);
+            Voitures[6].SetActive(false);
         }
-        else if (p < 7 && p > 0)
+        else if (p < 6 && p > 0)
         {
             Voitures[p].SetActive(true);
             Voitures[p+1].SetActive(false);
             Voitures[p-1].SetActive(false);
         }
-        if (p == 7)
+        if (p == 6)
         {
             Voitures[p].SetActive(true);
             Voitures[p-1].SetActive(false);
@@ -120,7 +120,7 @@ public class MenuManager : MonoBehaviour
     {
         if (p == 0)
         {
-            p = 7;
+            p = 6;
         }
         else
         {
@@ -130,7 +130,7 @@ public class MenuManager : MonoBehaviour
 
     public void Onclicright()
     {
-        if (p == 7)
+        if (p == 6)
         {
             p = 0;
         }
