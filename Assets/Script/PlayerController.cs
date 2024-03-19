@@ -9,7 +9,8 @@ public class PlayerController : MonoBehaviour
     public float basicSp = 15.0f;          // Vitesse du joueur
     public float jumpForce = 10.0f;         // Force de saut du joueur
     public float frollbo = 25.0f;           // Bonus de vitesse du joueur
-    public double elec = 0;                 // Jauge d'electricitée
+    public double elec = 0;   
+    public float impulseForce = 200f;              
     public int n = 0;                       // Variable de comptage
     public bool isboosingout;               // Indique si le joueur accélère
     public bool isslowingout;               // Indique si le joueur ralentit
@@ -322,6 +323,17 @@ public class PlayerController : MonoBehaviour
         else if (other.gameObject.CompareTag("GravitySwitch"))
         {
             Physics.gravity = new Vector3(0, -300, 0);
+        }
+    }
+    void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("Collision detected!");
+        if (collision.gameObject.CompareTag("dmgin"))
+        {
+            // Calculate the direction of the collision
+            Vector3 collisionDirection = Vector3.ProjectOnPlane(transform.position - collision.contacts[0].point, transform.up).normalized;
+            Debug.Log("Collision Direction: " + collisionDirection);
+            rb.AddTorque(collisionDirection * impulseForce, ForceMode.Impulse);
         }
     }
 
