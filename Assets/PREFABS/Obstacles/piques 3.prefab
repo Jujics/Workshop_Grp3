@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4780916559532147762}
   - component: {fileID: 2376954100612157400}
   m_Layer: 0
-  m_Name: piques 1
+  m_Name: piques 3
   m_TagString: dmgin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -53,8 +53,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 5.4700165, y: 5.6032944, z: 5.1297607}
-  m_Center: {x: -24.88781, y: -15.408718, z: 24.443237}
+  m_Size: {x: 1.0172157, y: 4.9632807, z: 1.03051}
+  m_Center: {x: -22.69235, y: -15.353493, z: 23.326523}
 --- !u!1 &2730803503745957899
 GameObject:
   m_ObjectHideFlags: 0
