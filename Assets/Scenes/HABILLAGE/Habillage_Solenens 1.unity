@@ -39770,6 +39770,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 64fba79a9003456498e1f23101cc0b93, type: 2}
   IsOnTurnLeft: 0
   IsOnTurnRight: 0
+  GravityChange: 0
   IsInFog: 0
   HasCombo: 0
   FogCount: 0
@@ -51728,6 +51729,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7527562267686689681, guid: 011fab5638639d3419c07486f84b6d78, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 7527562267686689681, guid: 011fab5638639d3419c07486f84b6d78, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 12.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 7527562267686689681, guid: 011fab5638639d3419c07486f84b6d78, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.48
+      objectReference: {fileID: 0}
     - target: {fileID: 7654254962415526031, guid: 011fab5638639d3419c07486f84b6d78, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2959.6665
@@ -51773,7 +51786,11 @@ PrefabInstance:
       value: decors_solene
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 2128979994547187418, guid: 011fab5638639d3419c07486f84b6d78, type: 3}
+    - {fileID: 6795987810894427258, guid: 011fab5638639d3419c07486f84b6d78, type: 3}
+    - {fileID: 5746616560783283474, guid: 011fab5638639d3419c07486f84b6d78, type: 3}
+    - {fileID: 5953854827303704080, guid: 011fab5638639d3419c07486f84b6d78, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 011fab5638639d3419c07486f84b6d78, type: 3}
