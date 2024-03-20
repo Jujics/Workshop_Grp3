@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     public Material[] newMaterial;    
     public bool IsOnTurnLeft;               // Indique si le joueur est dans un virage vers la gauche
     public bool IsOnTurnRight;              // Indique si le joueur est dans un virage vers la droite
+    public float GravityChange;
     public bool IsInFog;
     public bool HasCombo;
     public int FogCount = 0;
@@ -304,7 +305,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("GravitySwitch"))
         {
-            Physics.gravity = new Vector3(0, -30, 0);
+            Physics.gravity = new Vector3(0,GravityChange, 0);
         }  
     }
     void OnTriggerExit(Collider other)
