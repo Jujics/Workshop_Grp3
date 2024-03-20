@@ -32,8 +32,8 @@ public class walladv : MonoBehaviour
 
     void Update()
     {
-        Vector3 spd = new Vector3(0.0f, 0.0f, 2.0f);
-        rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, spd.z * wallsp);
+        Vector3 spd = new Vector3(0.0f, 0.0f, 1.0f);
+        rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, wallsp);
 
         if (Hasfirewall == true && Checks.InAdslIn == true)
         {
@@ -49,9 +49,9 @@ public class walladv : MonoBehaviour
         {
             vari.score -= 1;
         }
-        if (player.transform.position.z >= transform.position.z + 20 && Hasfirewall == false) 
+        if (player.transform.position.z >= transform.position.z + 30 && Hasfirewall == false) 
         {
-            wallsp = 10;
+            wallsp = 110;
             Nearwall = false;
             Critwall = false;
         }
@@ -67,9 +67,9 @@ public class walladv : MonoBehaviour
         }
 
         
-        if(Hasfirewall == false)
+        if(Hasfirewall == false && player.transform.position.z <= transform.position.z + 30 && Hasfirewall == false)
         {
-            wallsp = 2;
+            wallsp = 75;
         }
         if (Nearwall) 
         {

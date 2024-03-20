@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a8cc119e49481d4581693401aa9c8b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wallsp: 2
+  wallsp: 75
   player: {fileID: 0}
   Critwall: 0
   i: 0
