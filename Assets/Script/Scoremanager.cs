@@ -58,6 +58,7 @@ public class Scoremanager : MonoBehaviour
             }
             else
             {
+                PL.GameSound[6].Play();
                 score -= 100;
                 PL.isslowingout = true;
             }
@@ -70,6 +71,7 @@ public class Scoremanager : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("FrollElec"))
         {
+            PL.GameSound[2].Play();
             PL.elec += 100;
             PL.isboosingout = true;
         }
@@ -80,6 +82,7 @@ public class Scoremanager : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("smscoreobj"))
         {
+            PL.GameSound[4].Play();
             score += 20*multitroubleshoot;
             other.gameObject.SetActive(false);
             PL.HasCombo = true;
@@ -87,6 +90,7 @@ public class Scoremanager : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("bgscoreobj"))
         {
+            PL.GameSound[4].Play();
             score += 100*multitroubleshoot;
             other.gameObject.SetActive(false);
             PL.HasCombo = true;

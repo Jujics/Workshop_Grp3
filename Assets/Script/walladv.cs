@@ -13,7 +13,10 @@ public class walladv : MonoBehaviour
     public Material material;
     private Checksmanager Checks;
     private Rigidbody rb;
+    private int v = 1;
+    private int m = 1;
     private Scoremanager vari;
+    private PlayerController PL;
     
 
     
@@ -24,6 +27,7 @@ public class walladv : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         vari = player.GetComponent<Scoremanager>();
         Checks = player.GetComponent<Checksmanager>();
+        PL = player.GetComponent<PlayerController>();
     }
 
     void Update()
@@ -69,6 +73,14 @@ public class walladv : MonoBehaviour
         }
         if (Nearwall) 
         {
+            v = 1;
+            if (m == 1)
+            {
+                PL.GameSound[7].volume = PL.SoundLevel/2;
+                PL.GameSound[7].Play();
+                PL.GameSound[7].loop = true;
+            }    
+            m += 1;
             float InterpolationFactorNoise = 3.0f;
             float InterpolationFactorScanline = 0.1f;
             material.SetFloat("_noise_amount", Mathf.Lerp(material.GetFloat("_noise_amount"), 50f, InterpolationFactorNoise * Time.deltaTime));
@@ -76,6 +88,14 @@ public class walladv : MonoBehaviour
         } 
         else if (Critwall) 
         {
+            m = 1;
+            if (v == 1)
+            {
+                PL.GameSound[7].volume = PL.SoundLevel;
+                PL.GameSound[7].Play();
+                PL.GameSound[7].loop = true;
+            }    
+            v += 1;
             float InterpolationFactorNoise = 3.0f;
             float InterpolationFactorScanline = 0.1f;
             material.SetFloat("_noise_amount", Mathf.Lerp(material.GetFloat("_noise_amount"), 100f, InterpolationFactorNoise * Time.deltaTime));
@@ -83,6 +103,9 @@ public class walladv : MonoBehaviour
         } 
         else 
         {
+            m = 1;
+            v = 1;
+            PL.GameSound[7].loop = false;
             float InterpolationFactorNoise = 3.0f;
             float InterpolationFactorScanline = 0.1f;
             material.SetFloat("_noise_amount", Mathf.Lerp(material.GetFloat("_noise_amount"), 0f, InterpolationFactorNoise * Time.deltaTime));

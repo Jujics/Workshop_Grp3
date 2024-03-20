@@ -27600,6 +27600,10 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7447440173471957714, guid: 0eaeb51aaf6921e4480e8aa48f04d8bc, type: 3}
+      propertyPath: SoundSpeed.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7447440173471957714, guid: 0eaeb51aaf6921e4480e8aa48f04d8bc, type: 3}
       propertyPath: newMesh.Array.data[5]
       value: 
       objectReference: {fileID: -8302856757195774222, guid: 0c514feecb8dcc344bac11ea496d7e27, type: 3}
