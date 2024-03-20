@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repelForce: 1000
-  repelRadius: 10.01
+  repelRadius: 2.26
 --- !u!54 &5989456332847942377
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repelForce: 1000
-  repelRadius: 10.01
+  repelRadius: 2.26
 --- !u!54 &1013072395795208311
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -194,7 +194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repelForce: 1000
-  repelRadius: 10.01
+  repelRadius: 2.26
 --- !u!54 &7136670209595861719
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -268,7 +268,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repelForce: 1000
-  repelRadius: 10.01
+  repelRadius: 2.26
 --- !u!54 &4833982589165283601
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -342,7 +342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repelForce: 1000
-  repelRadius: 10.01
+  repelRadius: 2.26
 --- !u!54 &8650174460935291888
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -416,7 +416,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repelForce: 1000
-  repelRadius: 10.01
+  repelRadius: 2.26
 --- !u!54 &2427233720364345285
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -490,7 +490,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repelForce: 1000
-  repelRadius: 10.01
+  repelRadius: 2.26
 --- !u!54 &3237811152566412204
 Rigidbody:
   m_ObjectHideFlags: 0
