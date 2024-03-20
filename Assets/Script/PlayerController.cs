@@ -297,6 +297,7 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("winwall"))
         {
+            GameSound[0].volume = 0.2f;
             GameSound[9].Play();
             winui.SetActive(true);
         }

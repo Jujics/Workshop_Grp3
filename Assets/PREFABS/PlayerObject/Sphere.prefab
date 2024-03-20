@@ -1152,7 +1152,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 64fba79a9003456498e1f23101cc0b93, type: 2}
   IsOnTurnLeft: 0
   IsOnTurnRight: 0
-  GravityChange: 0
+  GravityChange: -80
   IsInFog: 0
   isPlayed: 0
   HasCombo: 0
