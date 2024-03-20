@@ -297,6 +297,7 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("winwall"))
         {
+            GameSound[9].Play();
             winui.SetActive(true);
         }
         else if (other.gameObject.CompareTag("elecgiv"))

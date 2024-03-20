@@ -35,6 +35,7 @@ public class Scoremanager : MonoBehaviour
         }
         if (score <= -1)
         {
+            PL.GameSound[8].Play();
             loseui.SetActive(true);
         }
         OldScore = score;  
@@ -72,7 +73,16 @@ public class Scoremanager : MonoBehaviour
         else if (other.gameObject.CompareTag("FrollElec"))
         {
             PL.GameSound[2].Play();
-            PL.elec += 100;
+            if (PL.elec + 10 < 100)
+            {
+                PL.elec += 10;
+                other.gameObject.SetActive(false);
+            }
+            else if (PL.elec + 10 > 100)
+            {
+                PL.elec = 100;
+                other.gameObject.SetActive(false);
+            }
             PL.isboosingout = true;
         }
         else if (other.gameObject.CompareTag("froll") && other.gameObject.CompareTag("dmgin"))
