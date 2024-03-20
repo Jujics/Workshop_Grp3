@@ -35,6 +35,7 @@ public class Scoremanager : MonoBehaviour
         }
         if (score <= -1)
         {
+            PL.GameSound[8].Play();
             loseui.SetActive(true);
         }
         OldScore = score;  
@@ -58,6 +59,7 @@ public class Scoremanager : MonoBehaviour
             }
             else
             {
+                PL.GameSound[6].Play();
                 score -= 100;
                 PL.isslowingout = true;
             }
@@ -70,7 +72,17 @@ public class Scoremanager : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("FrollElec"))
         {
-            PL.elec += 100;
+            PL.GameSound[2].Play();
+            if (PL.elec + 10 < 100)
+            {
+                PL.elec += 10;
+                other.gameObject.SetActive(false);
+            }
+            else if (PL.elec + 10 > 100)
+            {
+                PL.elec = 100;
+                other.gameObject.SetActive(false);
+            }
             PL.isboosingout = true;
         }
         else if (other.gameObject.CompareTag("froll") && other.gameObject.CompareTag("dmgin"))
@@ -80,6 +92,7 @@ public class Scoremanager : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("smscoreobj"))
         {
+            PL.GameSound[4].Play();
             score += 20*multitroubleshoot;
             other.gameObject.SetActive(false);
             PL.HasCombo = true;
@@ -87,6 +100,7 @@ public class Scoremanager : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("bgscoreobj"))
         {
+            PL.GameSound[4].Play();
             score += 100*multitroubleshoot;
             other.gameObject.SetActive(false);
             PL.HasCombo = true;

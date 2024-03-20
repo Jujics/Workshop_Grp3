@@ -169,6 +169,7 @@ public class MenuManager : MonoBehaviour
     public void Onclicchoose()
     {
         PlayerPrefs.SetInt("CarSelection", p);
+        PlayerPrefs.SetFloat("GameSound", SoundLevel);
         MusicGO.Play();
         SceneManager.LoadScene("SampleScene");
     }

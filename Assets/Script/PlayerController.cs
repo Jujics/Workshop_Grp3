@@ -23,11 +23,15 @@ public class PlayerController : MonoBehaviour
     public bool IsOnTurnRight;              // Indique si le joueur est dans un virage vers la droite
     public float GravityChange;
     public bool IsInFog;
+    public bool isPlayed;
     public bool HasCombo;
     public int FogCount = 0;
     public int Combo = 0;
     public int BestCombo = 0;
+    public float SoundLevel;
+    public AudioSource[] GameSound;
     public int LastComboTime = 0;
+    private int m = 1;
     private Rigidbody rb;                   // Composant Rigidbody du joueur
     private bool isGrounded;                // Indique si le joueur est au sol
     private float horizontalInput;  
@@ -39,6 +43,7 @@ public class PlayerController : MonoBehaviour
         Application.targetFrameRate = 60;
         MeshFilter meshFilter = GetComponent<MeshFilter>();
         int agrs = PlayerPrefs.GetInt("CarSelection");
+        SoundLevel = PlayerPrefs.GetFloat("GameSound");
         Debug.Log("test" + agrs);
         meshFilter.mesh = newMesh[agrs];
         movementSpeed = 0f;
@@ -47,6 +52,10 @@ public class PlayerController : MonoBehaviour
         SphereCollider sphereColider = GetComponent<SphereCollider>();
         MeshRenderer meshRenderer = GetComponent<MeshRenderer>();
         meshRenderer.material = newMaterial[agrs];
+        foreach (AudioSource audioSource in GameSound)
+        {
+            audioSource.volume = SoundLevel;
+        }
         switch (agrs)
         {
             case 0:
@@ -105,7 +114,19 @@ public class PlayerController : MonoBehaviour
     {
         if(movementSpeed >= 60)
         {
+            if (m == 1)
+            {
+                GameSound[11].volume = SoundLevel/2;
+                GameSound[11].Play();
+                GameSound[11].loop = true;
+            }    
+            m += 1;
             vcam.m_Lens.FieldOfView = movementSpeed; 
+        }
+        else
+        {
+            GameSound[11].loop = false;
+            m = 1;
         }
         HasCombo = false;
         if(IsInFog)
@@ -276,6 +297,7 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("winwall"))
         {
+            GameSound[9].Play();
             winui.SetActive(true);
         }
         else if (other.gameObject.CompareTag("elecgiv"))
@@ -301,6 +323,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("Schroom"))
         {
+            GameSound[3].Play();
             IsInFog = true;
         }
         else if (other.gameObject.CompareTag("GravitySwitch"))
