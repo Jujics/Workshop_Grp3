@@ -9,7 +9,8 @@ public class PlayerController : MonoBehaviour
     public float basicSp = 15.0f;          // Vitesse du joueur
     public float jumpForce = 10.0f;         // Force de saut du joueur
     public float frollbo = 25.0f;           // Bonus de vitesse du joueur
-    public double elec = 0;                 // Jauge d'electricitée
+    public double elec = 0;   
+    public float impulseForce = 200f;              
     public int n = 0;                       // Variable de comptage
     public bool isboosingout;               // Indique si le joueur accélère
     public bool isslowingout;               // Indique si le joueur ralentit
@@ -20,6 +21,7 @@ public class PlayerController : MonoBehaviour
     public Material[] newMaterial;    
     public bool IsOnTurnLeft;               // Indique si le joueur est dans un virage vers la gauche
     public bool IsOnTurnRight;              // Indique si le joueur est dans un virage vers la droite
+    public float GravityChange;
     public bool IsInFog;
     public bool HasCombo;
     public int FogCount = 0;
@@ -83,20 +85,13 @@ public class PlayerController : MonoBehaviour
                 transform.rotation = Quaternion.Euler(rotation4);
                 break;
             case 5:
-                sphereColider.radius = 0.01701497f;
-                Vector3 scale5 = new Vector3(869.2874f, 766.1737f, 766.1738f);
-                Vector3 rotation5 = new Vector3(270f, 0f, 90f);
-                transform.localScale = scale5;
-                transform.rotation = Quaternion.Euler(rotation5);
-                break;
-            case 6:
-                sphereColider.radius = 0.01701497f;
+                sphereColider.radius = 0.001852255f;
                 Vector3 scale6 = new Vector3(869.2874f, 766.1737f, 766.1738f);
-                Vector3 rotation6 = new Vector3(270f, 0f, 90f);
+                Vector3 rotation6 = new Vector3(270f, 0f, 180f);
                 transform.localScale = scale6;
                 transform.rotation = Quaternion.Euler(rotation6);
                 break;
-            case 7:
+            case 6:
                 sphereColider.radius = 0.001772515f;
                 Vector3 scale7 = new Vector3(869.2874f, 766.1737f, 766.1738f);
                 Vector3 rotation7 = new Vector3(270f, 0f, 180f);
@@ -108,6 +103,10 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if(movementSpeed >= 60)
+        {
+            vcam.m_Lens.FieldOfView = movementSpeed; 
+        }
         HasCombo = false;
         if(IsInFog)
         {
@@ -306,7 +305,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("GravitySwitch"))
         {
-            Physics.gravity = new Vector3(0, -30, 0);
+            Physics.gravity = new Vector3(0,GravityChange, 0);
         }  
     }
     void OnTriggerExit(Collider other)
@@ -322,6 +321,17 @@ public class PlayerController : MonoBehaviour
         else if (other.gameObject.CompareTag("GravitySwitch"))
         {
             Physics.gravity = new Vector3(0, -300, 0);
+        }
+    }
+    void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("Collision detected!");
+        if (collision.gameObject.CompareTag("dmgin"))
+        {
+            // Calculate the direction of the collision
+            Vector3 collisionDirection = Vector3.ProjectOnPlane(transform.position - collision.contacts[0].point, transform.up).normalized;
+            Debug.Log("Collision Direction: " + collisionDirection);
+            rb.AddTorque(collisionDirection * impulseForce, ForceMode.Impulse);
         }
     }
 
