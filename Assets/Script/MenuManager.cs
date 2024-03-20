@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour
 {
@@ -20,17 +21,24 @@ public class MenuManager : MonoBehaviour
     public int ih = 0;
     public bool onmenu;
     public int p = 0;
-
+    public AudioSource MusicBack;
+    public AudioSource MusicSelected;
+    public AudioSource MusicValidate;
+    public AudioSource MusicGO;
+    public Slider SoundSlider;
+    public float SoundLevel;
+    private AudioSource MusicMenu;
     private bool isonmain;
 
     void Start()
     {
         Application.targetFrameRate = 60;
-
+        MusicMenu = GetComponent<AudioSource>();
     }
 
     void Update()
     {
+        SubmitSliderSetting();
         if (hasclic == false)
         {
             hasclic = Input.GetAxis("Lngame") != 0.0f;
@@ -79,10 +87,12 @@ public class MenuManager : MonoBehaviour
             txtclig.SetActive(!txtclig.activeSelf);
             i = 0;
         }
+        
     }
 
     public void OnQuit()
     {
+        MusicValidate.Play();
         Application.Quit();
     }
 
@@ -90,34 +100,40 @@ public class MenuManager : MonoBehaviour
     {
         Options.SetActive(true);
         Mainmn.SetActive(false);
+        MusicValidate.Play();
     }
 
     public void OnClicCredits()
     {
         Credits.SetActive(true);
         Mainmn.SetActive(false);
+        MusicValidate.Play();
     }
 
     public void OnClicBackCre()
     {
         Credits.SetActive(false);
         Mainmn.SetActive(true);
+        MusicBack.Play();
     }
 
     public void OnClicBackOpt()
     {
         Options.SetActive(false);
         Mainmn.SetActive(true);
+        MusicBack.Play();
     }
 
     public void OnClicBackCar()
     {
         Carch.SetActive(false);
         Mainmn.SetActive(true);
+        MusicBack.Play();
     }
 
     public void Onclicleft()
     {
+        MusicValidate.Play();
         if (p == 0)
         {
             p = 6;
@@ -130,6 +146,7 @@ public class MenuManager : MonoBehaviour
 
     public void Onclicright()
     {
+        MusicValidate.Play();
         if (p == 6)
         {
             p = 0;
@@ -139,10 +156,20 @@ public class MenuManager : MonoBehaviour
             p += 1;
         }
     }
+    public void SubmitSliderSetting()
+    {
+        SoundLevel = SoundSlider.value;
+        MusicBack.volume = SoundLevel;
+        MusicSelected.volume = SoundLevel;
+        MusicValidate.volume = SoundLevel;
+        MusicGO.volume = SoundLevel;
+        MusicMenu.volume = SoundLevel;
+    }
 
     public void Onclicchoose()
     {
         PlayerPrefs.SetInt("CarSelection", p);
+        MusicGO.Play();
         SceneManager.LoadScene("SampleScene");
     }
 
@@ -150,5 +177,6 @@ public class MenuManager : MonoBehaviour
     {
         Carch.SetActive(true);
         Mainmn.SetActive(false);
+        MusicValidate.Play();
     }
 }
