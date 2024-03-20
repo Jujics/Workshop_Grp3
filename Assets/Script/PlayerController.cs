@@ -80,21 +80,21 @@ public class PlayerController : MonoBehaviour
             case 4:
                 sphereColider.radius = 0.0026813f;
                 Vector3 scale4 = new Vector3(808.5741f, 712.6616f, 712.6622f);
-                Vector3 rotation4 = new Vector3(270f, 0f, 180f);
+                Vector3 rotation4 = new Vector3(270f, 0f, 0f);
                 transform.localScale = scale4;
                 transform.rotation = Quaternion.Euler(rotation4);
                 break;
             case 5:
                 sphereColider.radius = 0.001852255f;
                 Vector3 scale6 = new Vector3(869.2874f, 766.1737f, 766.1738f);
-                Vector3 rotation6 = new Vector3(270f, 0f, 180f);
+                Vector3 rotation6 = new Vector3(270f, 0f, 0f);
                 transform.localScale = scale6;
                 transform.rotation = Quaternion.Euler(rotation6);
                 break;
             case 6:
                 sphereColider.radius = 0.001772515f;
                 Vector3 scale7 = new Vector3(869.2874f, 766.1737f, 766.1738f);
-                Vector3 rotation7 = new Vector3(270f, 0f, 180f);
+                Vector3 rotation7 = new Vector3(270f, 0f, 0f);
                 transform.localScale = scale7;
                 transform.rotation = Quaternion.Euler(rotation7);
                 break;
