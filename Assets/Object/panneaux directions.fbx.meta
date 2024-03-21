@@ -3,7 +3,17 @@ guid: 4892b60fe8114dd4f9f4d96bbe54913e
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: panneau  score
+    second: {fileID: 2100000, guid: 15e1fe7bdfebbb84b91b6c2042e0f494, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: panneau speed
+    second: {fileID: 2100000, guid: 2a3142aa56147b74d8d57e44943c225c, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
