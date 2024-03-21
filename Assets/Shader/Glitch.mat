@@ -38,7 +38,12 @@ Material:
     m_Ints: []
     m_Floats:
     - _Glitch_Strength: 0
+<<<<<<< Updated upstream
     - _Scan_Line_Strength: 0.99999076
     - _noise_amount: 0
+=======
+    - _Scan_Line_Strength: 0.9999859
+    - _noise_amount: 3e-45
+>>>>>>> Stashed changes
     m_Colors: []
   m_BuildTextureStacks: []
