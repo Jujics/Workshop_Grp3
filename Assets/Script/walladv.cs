@@ -69,7 +69,7 @@ public class walladv : MonoBehaviour
         
         if(Hasfirewall == false && player.transform.position.z <= transform.position.z + 30 && Hasfirewall == false)
         {
-            wallsp = 75;
+            wallsp = 85;
         }
         if (Nearwall) 
         {
