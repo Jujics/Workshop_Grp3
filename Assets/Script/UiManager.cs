@@ -11,19 +11,16 @@ public class UiManager : MonoBehaviour
     public TMP_Text ScoreTxt;
     public GameObject Player;
     public TMP_Text timeText;
-    public TMP_Text VpnText;
     public Image ElecBar;
     private float startTime;
     private bool isRunning;
     private PlayerController Playerc;
     private Scoremanager PlayerSco;
-    private Powerupmanager PW;
     // Start is called before the first frame update
     void Start()
     {
         Playerc = Player.GetComponent<PlayerController>();
         PlayerSco = Player.GetComponent<Scoremanager>();
-        PW = Player.GetComponent<Powerupmanager>();
         StartTimer();
     }
 
@@ -44,14 +41,6 @@ public class UiManager : MonoBehaviour
             int seconds = (int)(elapsedTime % 60);
             int milliseconds = (int)((elapsedTime * 1000) % 1000);
             timeText.text = string.Format("{0:00}:{1:00}:{2:000}", minutes, seconds, milliseconds);
-        }
-        if(PW.isvpn)
-        {
-            VpnText.text = "VPN = true";
-        }
-        else if(!PW.isvpn)
-        {
-            VpnText.text = "VPN = false";
         }
     }
     public void StartTimer()
