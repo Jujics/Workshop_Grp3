@@ -6439,7 +6439,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4358764084307838171}
   m_Layer: 0
-  m_Name: prefab_Aymeric_secteur2_droite
+  m_Name: 2_eme_tiers_droite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
