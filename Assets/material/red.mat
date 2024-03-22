@@ -28,6 +28,7 @@ Material:
     m_Floats:
     - _DstBlend: 0
     - _DstBlendAlpha: 0
+    - _SrcBlend: 1
     - _Surface: 0
     - _ZWrite: 1
     m_Colors:
