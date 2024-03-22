@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49714a1c4eba4ed43a4924b1817d1b22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  repelForce: 1000
+  repelForce: 10000
   repelRadius: 5
 --- !u!54 &6118126469671103658
 Rigidbody:
