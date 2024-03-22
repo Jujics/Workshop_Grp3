@@ -8,7 +8,6 @@ public class Checksmanager : MonoBehaviour
 {
     public string[] TexteAfficheHolder;
     public GameObject Canvastuto;
-    public GameObject ImageBg;
     public TMP_Text TextAffiche;
     public bool IsDisplayTextIn;
     public bool IsDisplayTextOut;
@@ -29,14 +28,12 @@ public class Checksmanager : MonoBehaviour
         if (IsDisplayTextIn)
         {
             Canvastuto.SetActive(true);
-            ImageBg.SetActive(true);
             TextAffiche.text = TexteAfficheHolder[i];
             Time.timeScale = 0.05f;
         }
         else if (!IsDisplayTextIn)
         {
             Canvastuto.SetActive(false);
-            ImageBg.SetActive(false);
             Time.timeScale = RefTime;
         }
     }
