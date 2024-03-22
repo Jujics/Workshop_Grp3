@@ -374,7 +374,7 @@ public class PlayerController : MonoBehaviour
     }
     public void ComboManager(bool HasCombo)
     {
-        if(LastComboTime >= 300)
+        if(LastComboTime >= 120)
         {
             Combo = 0;
         }
