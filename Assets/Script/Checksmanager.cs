@@ -57,7 +57,7 @@ public class Checksmanager : MonoBehaviour
         if(other.gameObject.CompareTag("InTextZone"))
         {
             IsDisplayTextIn = false;
-            i += i;
+            i += 1;
         }
     }
 }
