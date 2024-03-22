@@ -65,9 +65,11 @@ public class walladv : MonoBehaviour
             Critwall = true;
             Nearwall = false;
         }
-        if(player.transform.position >= -1470 && player.transform.position <= -1460)
+        if (player.transform.position.z >= -1470f && player.transform.position.z <= -1460f)
         {
-            transform.position.z = player.transform.position.z-10; 
+            Vector3 newPosition = transform.position;
+            newPosition.z = player.transform.position.z - 10f;
+            transform.position = newPosition;
         }
 
         
