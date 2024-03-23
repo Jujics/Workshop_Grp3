@@ -34,6 +34,12 @@ public class walladv : MonoBehaviour
     {
         Vector3 spd = new Vector3(0.0f, 0.0f, 1.0f);
         rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, wallsp);
+        if (player.transform.position.z >= -1470f && player.transform.position.z <= -1460f)
+        {
+            Vector3 newPosition = transform.position;
+            newPosition.z = player.transform.position.z - 10f;
+            transform.position = newPosition;
+        }
 
         if (Hasfirewall == true && Checks.InAdslIn == true)
         {
@@ -110,15 +116,6 @@ public class walladv : MonoBehaviour
             float InterpolationFactorScanline = 0.1f;
             material.SetFloat("_noise_amount", Mathf.Lerp(material.GetFloat("_noise_amount"), 0f, InterpolationFactorNoise * Time.deltaTime));
             material.SetFloat("_Scan_Line_Strength", Mathf.Lerp(material.GetFloat("_Scan_Line_Strength"), 1f, InterpolationFactorScanline * Time.deltaTime));
-        }
-        
-
-    }
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("firewall"))
-        {
-            Hasfirewall = true;
         }
     }
 }
